@@ -1,5 +1,6 @@
 import React from 'react';
-import { Terminal, X, Download, ExternalLink } from 'lucide-react';
+import { X, Download, ExternalLink } from 'lucide-react';
+import { CV_PDF_FILENAME, CV_PDF_PATH } from '../data/cvData';
 
 interface CvModalProps {
   isOpen: boolean;
@@ -10,56 +11,63 @@ interface CvModalProps {
 export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose, onDownload }) => {
   if (!isOpen) return null;
 
-  const pdfUrl = '/Taufiqurrahman_Hamdan_Al_Ayubi_CV.pdf';
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
-      <div className="bg-[#F8F9FA] rounded-2xl max-w-md w-full p-6 text-[#211C1A] space-y-4 shadow-2xl border border-[#211C1A]/10">
-        <div className="flex items-center justify-between border-b border-[#211C1A]/10 pb-3">
-          <h3 className="font-bold text-base flex items-center gap-2">
-            <Terminal className="w-5 h-5 text-[#2563EB]" />
-            Curriculum Vitae Preview
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-5 bg-ink/50 backdrop-blur-[2px]"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cv-modal-title"
+      onClick={onClose}
+    >
+      <div
+        className="bg-paper rounded-md max-w-md w-full p-6 sm:p-8 space-y-5 border border-line shadow-lg"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-start justify-between gap-4">
+          <h3 id="cv-modal-title" className="type-panel-title">
+            Curriculum vitae
           </h3>
-          <button 
+          <button
+            type="button"
             onClick={onClose}
-            className="w-7 h-7 rounded-full bg-[#F0EAE5] text-[#211C1A] hover:bg-[#211C1A] hover:text-white flex items-center justify-center text-xs font-bold transition-colors cursor-pointer"
+            className="p-1.5 rounded-md text-muted hover:text-ink hover:bg-surface transition-colors focus-ring cursor-pointer"
+            aria-label="Tutup"
           >
-            <X className="w-4 h-4" />
+            <X className="w-5 h-5" />
           </button>
         </div>
 
-        <p className="text-xs text-[#211C1A]/80 leading-relaxed">
-          CV ini mencakup riwayat akademis Computer Science (BINUS University B28 · Semester 5), pengalaman magang Data Center Office Thursina IIBS (2023), proyek AI LangFlow, serta keahlian Python, MySQL, dan Tailwind CSS milik Taufiqurrahman Hamdan Al Ayubi.
+        <p className="type-body-tight">
+          File PDF yang sama dengan biodata, pengalaman, pendidikan, sertifikat, dan keahlian di halaman ini.
         </p>
 
-        <div className="p-3 rounded-lg bg-[#F0EAE5] text-[11px] font-mono space-y-1 border border-[#211C1A]/5">
-          <div>File: <span className="font-bold text-[#211C1A]">Taufiqurrahman Hamdan Al Ayubi - CV.pdf</span></div>
-          <div>Ukuran: <span className="text-[#2563EB]">106 KB</span></div>
-          <div>Format: <span className="text-emerald-600 font-bold">Dokumen PDF Resmi</span></div>
-        </div>
+        <p className="type-body-tight">
+          <span className="type-label">Berkas</span>
+          <span className="block type-body-ink font-normal mt-1">{CV_PDF_FILENAME}</span>
+        </p>
 
         <div className="flex flex-col sm:flex-row gap-3 pt-2">
           <a
-            href={pdfUrl}
-            download="Taufiqurrahman Hamdan Al Ayubi - CV.pdf"
+            href={CV_PDF_PATH}
+            download={CV_PDF_FILENAME}
             onClick={() => {
               onDownload();
               onClose();
             }}
-            className="flex-1 py-2.5 px-4 rounded-lg bg-[#2563EB] hover:bg-[#1d4ed8] text-white text-xs font-bold transition-all shadow flex items-center justify-center gap-2 cursor-pointer text-center"
+            className="flex-1 py-2.5 px-4 rounded-md bg-ink hover:bg-accent text-paper type-ui transition-colors flex items-center justify-center gap-2 focus-ring"
           >
             <Download className="w-4 h-4" />
-            <span>Unduh PDF</span>
+            Unduh PDF
           </a>
 
           <a
-            href={pdfUrl}
+            href={CV_PDF_PATH}
             target="_blank"
             rel="noopener noreferrer"
-            className="py-2.5 px-4 rounded-lg bg-[#F0EAE5] hover:bg-[#e4dad3] text-[#211C1A] text-xs font-bold transition-all border border-[#211C1A]/10 flex items-center justify-center gap-1.5 cursor-pointer text-center"
+            className="py-2.5 px-4 rounded-md border border-line type-ui hover:bg-surface transition-colors flex items-center justify-center gap-2 focus-ring text-ink"
           >
-            <ExternalLink className="w-3.5 h-3.5 text-[#2563EB]" />
-            <span>Lihat Tab Baru</span>
+            <ExternalLink className="w-4 h-4" />
+            Buka di tab baru
           </a>
         </div>
       </div>

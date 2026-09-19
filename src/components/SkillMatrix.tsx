@@ -1,81 +1,86 @@
 import React from 'react';
-import { Cloud, Code, Cpu } from 'lucide-react';
-import type { SkillCategory } from '../types/portfolio';
+import {
+  CV_CERTIFICATES,
+  CV_EDUCATION,
+  CV_LANGUAGES,
+  SKILL_CATEGORIES,
+} from '../data/cvData';
 
-interface SkillMatrixProps {
-  profileImage?: string;
-  skillCategories: SkillCategory[];
-}
-
-export const SkillMatrix: React.FC<SkillMatrixProps> = ({ skillCategories }) => {
-  const getCategoryIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'cloud':
-        return <Cloud className="w-5 h-5" />;
-      case 'code':
-        return <Code className="w-5 h-5" />;
-      case 'cpu':
-        return <Cpu className="w-5 h-5" />;
-      default:
-        return <Code className="w-5 h-5" />;
-    }
-  };
-
+export const SkillMatrix: React.FC = () => {
   return (
-    <section id="about" className="py-20 bg-[#F8F9FA] border-t border-[#211C1A]/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="max-w-3xl mb-12 space-y-3">
-          <h2 className="text-3xl font-extrabold text-[#211C1A]">
-            Technical skills
-          </h2>
-          <p className="text-[#211C1A]/70 text-sm leading-relaxed">
-            Sebagai mahasiswa Computer Science, saya mengkombinasikan fondasi teori ilmu komputer (sistem operasi, jaringan komputer, struktur data) dengan praktik industri rekayasa cloud dan software backend.
-          </p>
-        </div>
+    <section id="about" className="section-pad bg-surface border-b border-line">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        <header className="mb-8">
+          <h2 className="type-section">Skills</h2>
+        </header>
 
-        {/* Grid Layout 3 Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {skillCategories.map((cat, idx) => (
-            <div 
-              key={idx}
-              className="rounded-xl p-6 bg-[#F0EAE5] border border-[#211C1A]/10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+        <div className="space-y-4">
+          {SKILL_CATEGORIES.map((cat) => (
+            <article
+              key={cat.title}
+              className="border border-line rounded-lg p-4 sm:p-5 bg-paper grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8"
             >
-              <div>
-                {/* Icon + Title */}
-                <div className="w-10 h-10 rounded-lg bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center mb-4">
-                  {getCategoryIcon(cat.iconName)}
-                </div>
-
-                <h3 className="text-lg font-bold text-[#211C1A] mb-2">{cat.title}</h3>
-                <p className="text-xs text-[#211C1A]/70 leading-relaxed mb-6">
-                  {cat.description}
-                </p>
-
-                {/* Skill Items */}
-                <div className="space-y-3">
-                  {cat.skills.map((s, sIdx) => (
-                    <div key={sIdx} className="border-b border-[#211C1A]/10 pb-2">
-                      <div className="flex justify-between items-center text-xs font-medium">
-                        <span className="text-[#211C1A] font-semibold">{s.name}</span>
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#F8F9FA] text-[#2563EB] border border-[#211C1A]/5">
-                          {s.level}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              <div className="lg:col-span-4">
+                <h3 className="type-block-title mb-1">{cat.title}</h3>
+                <p className="type-body-tight">{cat.description}</p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-[#211C1A]/10 text-[11px] font-mono text-[#211C1A]/60 flex items-center justify-between">
-                <span>Verified via Project Implementation</span>
-                <span className="text-[#2563EB]">● Ready</span>
-              </div>
-            </div>
+              <ul className="lg:col-span-8">
+                {cat.skills.map((skill) => (
+                  <li
+                    key={skill.name}
+                    className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-0.5 py-2.5 border-b border-line last:border-b-0"
+                  >
+                    <span className="type-body-ink">{skill.name}</span>
+                    <span className="type-meta sm:text-right sm:max-w-[10rem]">{skill.level}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
           ))}
-        </div>
 
+          <article className="border border-line rounded-lg p-4 sm:p-5 bg-paper">
+            <h3 className="type-block-title mb-3">Education</h3>
+            <ul className="space-y-3">
+              {CV_EDUCATION.map((edu) => (
+                <li key={edu.period} className="type-body-tight border-b border-line last:border-b-0 pb-3 last:pb-0">
+                  <p className="type-meta mb-1">{edu.period}</p>
+                  <p className="type-body-ink font-normal">
+                    {edu.title} — {edu.institution} ({edu.detail})
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <article className="border border-line rounded-lg p-4 sm:p-5 bg-paper">
+            <h3 className="type-block-title mb-3">Certificates</h3>
+            <ul className="space-y-3">
+              {CV_CERTIFICATES.map((cert) => (
+                <li key={cert.title} className="type-body-tight border-b border-line last:border-b-0 pb-3 last:pb-0">
+                  <p className="type-meta mb-1">{cert.period}</p>
+                  <p className="type-body-ink font-normal">{cert.title}</p>
+                  <p className="type-body-tight mt-0.5">{cert.issuer}</p>
+                  {cert.credentialId && (
+                    <p className="type-meta mt-1">Credential ID: {cert.credentialId}</p>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <article className="border border-line rounded-lg p-4 sm:p-5 bg-paper">
+            <h3 className="type-block-title mb-3">Languages</h3>
+            <ul className="flex flex-wrap gap-x-8 gap-y-2">
+              {CV_LANGUAGES.map((lang) => (
+                <li key={lang.language} className="type-body-tight">
+                  <span className="type-body-ink font-normal">{lang.language}</span>
+                  <span className="text-muted"> — {lang.level}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
   );

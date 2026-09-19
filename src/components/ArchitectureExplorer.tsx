@@ -1,54 +1,46 @@
 import React from 'react';
 
+const topics = [
+  {
+    title: 'Self-checkout clients',
+    body:
+      'In-store terminals as the entry point for the supermarket self-checkout system described in the cloud infrastructure simulation project.',
+  },
+  {
+    title: 'Application & integration layer',
+    body:
+      'Services that handle checkout logic, payments, and integrations — the middle tier in the architecture diagram.',
+  },
+  {
+    title: 'Data & persistence',
+    body:
+      'Databases and storage backing catalog, transactions, and operational data for the self-checkout flow.',
+  },
+];
+
 export const ArchitectureExplorer: React.FC = () => {
   return (
-    <section id="architecture-explorer" className="py-20 bg-[#F8F9FA] border-t border-[#211C1A]/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div className="max-w-3xl mb-12">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#2563EB]">
-            03. Interactive Cloud Explorer
-          </span>
-          <h2 className="text-3xl font-extrabold text-[#211C1A] mt-1">
-            Want to explore
-          </h2>
+    <section id="architecture-explorer" className="section-pad border-b border-line">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        <header className="mb-8 max-w-2xl">
+          <h2 className="type-section">Want to explore</h2>
+          <p className="type-body-tight mt-3">
+            Lapisan arsitektur dari proyek simulasi cloud infrastructure (supermarket self-checkout), sesuai
+            bagian Experience pada CV.
+          </p>
+        </header>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {topics.map((topic) => (
+            <article
+              key={topic.title}
+              className="border border-line rounded-lg p-4 sm:p-5 bg-paper"
+            >
+              <h3 className="type-block-title mb-2">{topic.title}</h3>
+              <p className="type-body-tight">{topic.body}</p>
+            </article>
+          ))}
         </div>
-
-        {/* Interactive Cloud Explorer Card Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
-          <div className="p-6 rounded-xl bg-[#F0EAE5] border border-[#211C1A]/10 space-y-3 hover:border-[#2563EB] transition-colors cursor-pointer group">
-            <div className="w-8 h-8 rounded bg-[#2563EB] text-white flex items-center justify-center font-bold text-xs">
-              01
-            </div>
-            <h3 className="font-bold text-[#211C1A] group-hover:text-[#2563EB] transition-colors">Auto Scaling &amp; Traffic Spikes</h3>
-            <p className="text-xs text-[#211C1A]/70 leading-relaxed">
-              Menggunakan AWS Target Tracking Scaling Policies berdasarkan konsumsi CPU (&gt;75%) dan Request Count per Target untuk menambah Fargate tasks secara efisien.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-xl bg-[#F0EAE5] border border-[#211C1A]/10 space-y-3 hover:border-[#06B6D4] transition-colors cursor-pointer group">
-            <div className="w-8 h-8 rounded bg-[#06B6D4] text-white flex items-center justify-center font-bold text-xs">
-              02
-            </div>
-            <h3 className="font-bold text-[#211C1A] group-hover:text-[#06B6D4] transition-colors">Database Multi-AZ Failover</h3>
-            <p className="text-xs text-[#211C1A]/70 leading-relaxed">
-              Amazon RDS PostgreSQL direplikasi secara synchronous ke Standby Instance di Availability Zone berbeda dengan DNS switchover otomatis di bawah 60 detik.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-xl bg-[#F0EAE5] border border-[#211C1A]/10 space-y-3 hover:border-[#211C1A] transition-colors cursor-pointer group">
-            <div className="w-8 h-8 rounded bg-[#211C1A] text-white flex items-center justify-center font-bold text-xs">
-              03
-            </div>
-            <h3 className="font-bold text-[#211C1A] group-hover:text-[#2563EB] transition-colors">CI/CD Automated Testing</h3>
-            <p className="text-xs text-[#211C1A]/70 leading-relaxed">
-              Setiap pull request diuji via GitHub Actions (linting, unit test, security scan SonarQube) sebelum dilakukan otomatisasi Terraform apply.
-            </p>
-          </div>
-
-        </div>
-
       </div>
     </section>
   );

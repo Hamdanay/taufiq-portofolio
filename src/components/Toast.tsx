@@ -10,7 +10,7 @@ export const Toast: React.FC<ToastProps> = ({ message }) => {
   return (
     <div
       role="status"
-      className="fixed bottom-6 right-6 z-50 max-w-sm px-4 py-3 rounded-md bg-ink text-paper type-ui shadow-lg border border-line/20"
+      className="fixed bottom-6 right-6 z-50 max-w-sm px-4 py-3 rounded-md bg-surface border border-accent text-ink text-sm shadow-lg"
     >
       {message}
     </div>

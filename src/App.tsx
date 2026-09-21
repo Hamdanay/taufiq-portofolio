@@ -8,12 +8,12 @@ import { Footer } from './components/Footer';
 import { CvModal } from './components/CvModal';
 import { Toast } from './components/Toast';
 import { PROJECTS } from './data/portfolioData';
-import { BIODATA, CV_PDF_FILENAME, CV_PDF_PATH } from './data/cvData';
+import { BIODATA } from './data/cvData';
 
 export function App() {
   const [toastMessage, setToastMessage] = useState<string>('');
   const [showCvModal, setShowCvModal] = useState<boolean>(false);
-  const [profileImage] = useState<string>('/profile_photo.png');
+  const [profileImage] = useState<string>('/profile_photo.png?v=3');
 
   const showToast = (msg: string) => {
     setToastMessage(msg);
@@ -26,13 +26,7 @@ export function App() {
   };
 
   const handleDownloadCv = () => {
-    const link = document.createElement('a');
-    link.href = CV_PDF_PATH;
-    link.download = CV_PDF_FILENAME;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    showToast('Mengunduh CV…');
+    showToast('CV berhasil diunduh.');
   };
 
   return (
@@ -40,7 +34,11 @@ export function App() {
       <Navbar onOpenCvModal={() => setShowCvModal(true)} />
 
       <main>
-        <Hero profileImage={profileImage} onCopyEmail={copyEmailToClipboard} />
+        <Hero
+          profileImage={profileImage}
+          onCopyEmail={copyEmailToClipboard}
+          onOpenCv={() => setShowCvModal(true)}
+        />
 
         <SkillMatrix />
 
@@ -49,7 +47,7 @@ export function App() {
         <ArchitectureExplorer />
       </main>
 
-      <Footer />
+      <Footer onOpenCv={() => setShowCvModal(true)} />
 
       <CvModal
         isOpen={showCvModal}

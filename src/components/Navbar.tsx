@@ -1,47 +1,47 @@
 import React from 'react';
-import { BIODATA } from '../data/cvData';
 
 interface NavbarProps {
   onOpenCvModal: () => void;
 }
 
 const navLinks = [
-  { href: '#about', label: 'Keahlian' },
-  { href: '#projects', label: 'Proyek' },
-  { href: '#architecture-explorer', label: 'Eksplorasi' },
-  { href: '#contact', label: 'Kontak' },
+  { href: '#hero', label: 'Home' },
+  { href: '#about', label: 'About' },
+  { href: '#projects', label: 'Portfolio' },
+  { href: '#architecture-explorer', label: 'Services' },
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal }) => {
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur-sm">
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 h-[4.25rem] flex items-center justify-between gap-6">
+    <header className="sticky top-0 z-50 nav-glass">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 h-16 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
         <a
           href="#hero"
-          className="font-display text-[1.0625rem] sm:text-lg font-semibold tracking-[-0.04em] text-ink hover:text-accent transition-colors focus-ring rounded-sm"
+          className="font-display text-xl sm:text-2xl font-semibold text-accent hover-underline-stretch focus-ring rounded-sm"
         >
-          {BIODATA.fullName.split(' ')[0]}
+          Profil
         </a>
 
-        <nav className="hidden md:flex items-center gap-8 type-nav text-muted">
+        <nav className="hidden md:flex items-center justify-center gap-10 type-nav text-secondary">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="hover:text-ink transition-colors focus-ring rounded-sm"
-            >
+            <a key={link.href} href={link.href} className="nav-link focus-ring rounded-sm">
               {link.label}
             </a>
           ))}
         </nav>
 
-        <button
-          type="button"
-          onClick={onOpenCvModal}
-          className="shrink-0 btn-primary focus-ring cursor-pointer"
-        >
-          CV
-        </button>
+        <div className="flex justify-end gap-3 items-center">
+          <button
+            type="button"
+            onClick={onOpenCvModal}
+            className="btn-ghost btn-sm hidden sm:inline-flex focus-ring"
+          >
+            CV
+          </button>
+          <a href="#contact" className="btn-contact focus-ring inline-flex">
+            Contact
+          </a>
+        </div>
       </div>
     </header>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
-import { X, Download, ExternalLink } from 'lucide-react';
+import { X, ExternalLink } from 'lucide-react';
+import { DownloadProgressButton } from './DownloadProgressButton';
 import { CV_PDF_FILENAME, CV_PDF_PATH } from '../data/cvData';
 
 interface CvModalProps {
@@ -13,61 +14,48 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose, onDownload })
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-5 bg-ink/50 backdrop-blur-[2px]"
+      className="fixed inset-0 z-50 flex items-center justify-center p-5 bg-black/70 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
       aria-labelledby="cv-modal-title"
       onClick={onClose}
     >
       <div
-        className="bg-paper rounded-md max-w-md w-full p-6 sm:p-8 space-y-5 border border-line shadow-lg"
+        className="glass-card max-w-md w-full p-6 sm:p-8 space-y-5"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-start justify-between gap-4">
-          <h3 id="cv-modal-title" className="type-panel-title">
+          <h3 id="cv-modal-title" className="type-block-title text-lg">
             Curriculum vitae
           </h3>
           <button
             type="button"
             onClick={onClose}
-            className="p-1.5 rounded-md text-muted hover:text-ink hover:bg-surface transition-colors focus-ring cursor-pointer"
+            className="p-1.5 text-muted hover:text-ink focus-ring cursor-pointer"
             aria-label="Tutup"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        <p className="type-body-tight">
-          File PDF yang sama dengan biodata, pengalaman, pendidikan, sertifikat, dan keahlian di halaman ini.
-        </p>
-
-        <p className="type-body-tight">
-          <span className="type-label">Berkas</span>
-          <span className="block type-body-ink font-normal mt-1">{CV_PDF_FILENAME}</span>
-        </p>
+        <p className="type-body-tight">{CV_PDF_FILENAME}</p>
 
         <div className="flex flex-col sm:flex-row gap-3 pt-2">
-          <a
+          <DownloadProgressButton
             href={CV_PDF_PATH}
-            download={CV_PDF_FILENAME}
-            onClick={() => {
+            filename={CV_PDF_FILENAME}
+            onComplete={() => {
               onDownload();
-              onClose();
             }}
-            className="flex-1 btn-primary focus-ring flex items-center justify-center gap-2"
-          >
-            <Download className="w-4 h-4" />
-            Unduh PDF
-          </a>
-
+          />
           <a
             href={CV_PDF_PATH}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-secondary focus-ring flex items-center justify-center gap-2"
+            className="btn-outline flex-1 focus-ring"
           >
-            <ExternalLink className="w-4 h-4" />
-            Buka di tab baru
+            <ExternalLink className="w-4 h-4" aria-hidden />
+            Buka tab baru
           </a>
         </div>
       </div>

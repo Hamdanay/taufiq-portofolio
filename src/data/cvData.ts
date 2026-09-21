@@ -5,6 +5,7 @@ export const CV_PDF_FILENAME = 'Taufiqurrahman Hamdan Al Ayubi - CV.pdf';
 
 export const BIODATA = {
   fullName: 'Taufiqurrahman Hamdan Al Ayubi',
+  shortName: 'Taufiq',
   headline: 'Computer Science Student | Binus University',
   phone: '+62 822 8803 9540',
   phoneHref: 'tel:+6282288039540',
@@ -16,6 +17,22 @@ export const BIODATA = {
   location: 'Batam, Indonesia',
   country: 'Indonesia',
 };
+
+export const HERO_STATS = [
+  { value: '2+', label: 'Tahun Belajar & Praktik' },
+  { value: '2', label: 'Proyek Portfolio' },
+];
+
+export const HERO_SKILL_TAGS = [
+  'Cloud Infrastructure',
+  'Web Development',
+  'Python',
+  'UI/UX Design',
+  'LLM & AI Agent',
+  'MySQL',
+  'GitHub',
+  'LinkedIn',
+];
 
 export const CV_SUMMARY = `I am an Informatics student at BINUS University focusing on Software Engineering and Cloud Technology. My main interests lie in web development, cloud infrastructure, and applied Deep Learning, supported by certifications in Google Cloud, Large Language Models, AI Agents, and UI/UX Design. I also gained practical experience through a Khidmah program at Thursina IIBS Unit Administration and Data Center (May–June 2023), where I was involved in IT infrastructure and system support operations.
 

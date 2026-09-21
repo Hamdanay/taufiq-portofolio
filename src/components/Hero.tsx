@@ -1,5 +1,6 @@
 import React from 'react';
 import { BIODATA, CV_SUMMARY } from '../data/cvData';
+import { SocialLinks } from './SocialLinks';
 
 interface HeroProps {
   profileImage: string;
@@ -8,10 +9,10 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ profileImage, onCopyEmail }) => {
   return (
-    <section id="hero" className="section-pad border-b border-line">
+    <section id="hero" className="section-pad border-b border-line bg-paper">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_11.5rem] lg:grid-cols-[minmax(0,1fr)_13.5rem] gap-8 md:gap-10 items-center">
-          <div className="space-y-6 min-w-0">
+        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_14rem] lg:grid-cols-[minmax(0,1fr)_15rem] gap-8 md:gap-10 items-start">
+          <div className="min-w-0 space-y-6">
             <header>
               <h1 className="type-display text-balance">{BIODATA.fullName}</h1>
               <p className="type-lead mt-3">{BIODATA.headline}</p>
@@ -20,33 +21,11 @@ export const Hero: React.FC<HeroProps> = ({ profileImage, onCopyEmail }) => {
                 <div className="flex flex-wrap gap-x-2 gap-y-1">
                   <dt className="type-stat-label shrink-0">Telepon</dt>
                   <dd>
-                    <a href={BIODATA.phoneHref} className="type-body-ink font-normal link-underline focus-ring rounded-sm">
-                      {BIODATA.phone}
-                    </a>
-                  </dd>
-                </div>
-                <div className="flex flex-wrap gap-x-2 gap-y-1">
-                  <dt className="type-stat-label shrink-0">Email</dt>
-                  <dd>
-                    <button
-                      type="button"
-                      onClick={onCopyEmail}
-                      className="type-body-ink font-normal link-underline focus-ring rounded-sm cursor-pointer bg-transparent border-0 p-0 text-left"
-                    >
-                      {BIODATA.email}
-                    </button>
-                  </dd>
-                </div>
-                <div className="flex flex-wrap gap-x-2 gap-y-1">
-                  <dt className="type-stat-label shrink-0">LinkedIn</dt>
-                  <dd>
                     <a
-                      href={BIODATA.linkedinUrl}
-                      target="_blank"
-                      rel="noreferrer"
+                      href={BIODATA.phoneHref}
                       className="type-body-ink font-normal link-underline focus-ring rounded-sm"
                     >
-                      {BIODATA.linkedinLabel}
+                      {BIODATA.phone}
                     </a>
                   </dd>
                 </div>
@@ -60,7 +39,7 @@ export const Hero: React.FC<HeroProps> = ({ profileImage, onCopyEmail }) => {
             </header>
 
             <div className="space-y-3 border-t border-line pt-6">
-              <h2 className="type-label">Summary</h2>
+              <h2 className="type-block-title section-heading">Summary</h2>
               {CV_SUMMARY.split('\n\n').map((paragraph) => (
                 <p key={paragraph.slice(0, 32)} className="type-body">
                   {paragraph}
@@ -68,17 +47,14 @@ export const Hero: React.FC<HeroProps> = ({ profileImage, onCopyEmail }) => {
               ))}
             </div>
 
-            <a
-              href="#projects"
-              className="inline-flex items-center justify-center px-5 py-2.5 type-ui bg-ink text-paper rounded-md hover:bg-accent transition-colors focus-ring"
-            >
+            <a href="#projects" className="btn-ghost inline-flex focus-ring">
               Lihat pengalaman & proyek
             </a>
           </div>
 
-          <div className="mx-auto md:ml-auto md:mr-0 w-full max-w-[13.5rem] shrink-0">
+          <aside className="w-full max-w-[15rem] mx-auto md:mx-0 md:ml-auto flex flex-col gap-3 shrink-0">
             <div className="rounded-2xl border-2 border-line bg-surface p-2 shadow-sm">
-              <div className="aspect-[4/5] overflow-hidden rounded-xl bg-paper">
+              <div className="aspect-[4/5] overflow-hidden rounded-xl bg-paper ring-1 ring-line">
                 <img
                   src={profileImage}
                   alt={BIODATA.fullName}
@@ -90,7 +66,11 @@ export const Hero: React.FC<HeroProps> = ({ profileImage, onCopyEmail }) => {
                 />
               </div>
             </div>
-          </div>
+
+            <div id="contact" className="w-full">
+              <SocialLinks onCopyEmail={onCopyEmail} layout="stack" fullWidth />
+            </div>
+          </aside>
         </div>
       </div>
     </section>

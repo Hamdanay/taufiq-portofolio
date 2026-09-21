@@ -11,6 +11,8 @@ export const BIODATA = {
   email: 'urrahmantaufiq00@gmail.com',
   linkedinUrl: 'https://www.linkedin.com/in/taufiqurrahman-hamdan-al-ayubi-48bb44229/',
   linkedinLabel: 'LinkedIn',
+  githubUrl: 'https://github.com/Hamdanay',
+  githubLabel: 'GitHub',
   location: 'Batam, Indonesia',
   country: 'Indonesia',
 };

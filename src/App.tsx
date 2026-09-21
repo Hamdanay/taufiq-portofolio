@@ -4,7 +4,6 @@ import { Hero } from './components/Hero';
 import { SkillMatrix } from './components/SkillMatrix';
 import { Projects } from './components/Projects';
 import { ArchitectureExplorer } from './components/ArchitectureExplorer';
-import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { CvModal } from './components/CvModal';
 import { Toast } from './components/Toast';
@@ -37,7 +36,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-paper text-ink antialiased selection:bg-accent selection:text-white">
+    <div className="min-h-screen bg-paper text-ink antialiased selection:bg-accent selection:text-paper">
       <Navbar onOpenCvModal={() => setShowCvModal(true)} />
 
       <main>
@@ -48,8 +47,6 @@ export function App() {
         <Projects projects={PROJECTS} />
 
         <ArchitectureExplorer />
-
-        <Contact onCopyEmail={copyEmailToClipboard} />
       </main>
 
       <Footer />

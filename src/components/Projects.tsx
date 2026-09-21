@@ -22,8 +22,8 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   return (
     <section id="projects" className="section-pad bg-paper border-b border-line">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
-        <header className="mb-12 grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-10 items-end">
-          <h2 className="type-section lg:col-span-4">Experience</h2>
+        <header className="mb-8 grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-end">
+          <h2 className="type-section section-heading lg:col-span-4">Experience</h2>
           <p className="type-body-tight lg:col-span-8 lg:max-w-lg">
             Entri pengalaman dan proyek independen dari CV: simulasi arsitektur cloud dan magang Program
             Khidmah di Thursina IIBS.
@@ -48,8 +48,8 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                       }}
                       className={`w-full text-left py-2.5 px-3 type-nav rounded-md transition-colors focus-ring cursor-pointer border-l-2 ${
                         isActive
-                          ? 'border-accent bg-surface font-semibold text-ink'
-                          : 'border-transparent text-muted hover:text-ink hover:bg-surface/80'
+                          ? 'border-accent bg-accent-soft font-semibold text-accent'
+                          : 'border-transparent text-muted hover:text-ink hover:bg-surface/60'
                       }`}
                     >
                       {proj.title.length > 42 ? `${proj.title.slice(0, 42)}…` : proj.title}
@@ -61,8 +61,8 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           </aside>
 
           <div className="flex-1 min-w-0">
-            <div className="border border-line rounded-md bg-paper overflow-hidden">
-              <div className="px-6 py-6 sm:px-8 border-b border-line bg-surface/50">
+            <div className="card-frame overflow-hidden">
+              <div className="px-6 py-5 sm:px-8 border-b border-line bg-surface/80">
                 <p className="type-meta mb-3">{selectedProject.category}</p>
                 <h3 className="type-panel-title">{selectedProject.title}</h3>
                 <p className="type-body-tight mt-2 max-w-2xl">{selectedProject.subtitle}</p>
@@ -75,7 +75,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                       onClick={() => setActiveTab(tab.id)}
                       className={`px-4 py-2.5 type-nav border-b-2 transition-colors focus-ring cursor-pointer -mb-px ${
                         activeTab === tab.id
-                          ? 'border-ink text-ink font-semibold'
+                          ? 'border-accent text-accent font-semibold'
                           : 'border-transparent text-muted hover:text-ink'
                       }`}
                     >

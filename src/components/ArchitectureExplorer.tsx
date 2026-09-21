@@ -20,10 +20,10 @@ const topics = [
 
 export const ArchitectureExplorer: React.FC = () => {
   return (
-    <section id="architecture-explorer" className="section-pad border-b border-line">
+    <section id="architecture-explorer" className="section-pad border-b border-line bg-surface-alt">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
-        <header className="mb-8 max-w-2xl">
-          <h2 className="type-section">Want to explore</h2>
+        <header className="mb-6 max-w-2xl">
+          <h2 className="type-section section-heading">Want to explore</h2>
           <p className="type-body-tight mt-3">
             Lapisan arsitektur dari proyek simulasi cloud infrastructure (supermarket self-checkout), sesuai
             bagian Experience pada CV.
@@ -34,7 +34,7 @@ export const ArchitectureExplorer: React.FC = () => {
           {topics.map((topic) => (
             <article
               key={topic.title}
-              className="border border-line rounded-lg p-4 sm:p-5 bg-paper"
+              className="card-frame p-4 sm:p-5"
             >
               <h3 className="type-block-title mb-2">{topic.title}</h3>
               <p className="type-body-tight">{topic.body}</p>

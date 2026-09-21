@@ -10,15 +10,15 @@ export const SkillMatrix: React.FC = () => {
   return (
     <section id="about" className="section-pad bg-surface border-b border-line">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
-        <header className="mb-8">
-          <h2 className="type-section">Skills</h2>
+        <header className="mb-6">
+          <h2 className="type-section section-heading">Skills</h2>
         </header>
 
         <div className="space-y-4">
           {SKILL_CATEGORIES.map((cat) => (
             <article
               key={cat.title}
-              className="border border-line rounded-lg p-4 sm:p-5 bg-paper grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8"
+              className="card-frame p-4 sm:p-5 grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8"
             >
               <div className="lg:col-span-4">
                 <h3 className="type-block-title mb-1">{cat.title}</h3>
@@ -39,7 +39,7 @@ export const SkillMatrix: React.FC = () => {
             </article>
           ))}
 
-          <article className="border border-line rounded-lg p-4 sm:p-5 bg-paper">
+          <article className="card-frame p-4 sm:p-5">
             <h3 className="type-block-title mb-3">Education</h3>
             <ul className="space-y-3">
               {CV_EDUCATION.map((edu) => (
@@ -53,7 +53,7 @@ export const SkillMatrix: React.FC = () => {
             </ul>
           </article>
 
-          <article className="border border-line rounded-lg p-4 sm:p-5 bg-paper">
+          <article className="card-frame p-4 sm:p-5">
             <h3 className="type-block-title mb-3">Certificates</h3>
             <ul className="space-y-3">
               {CV_CERTIFICATES.map((cert) => (
@@ -69,7 +69,7 @@ export const SkillMatrix: React.FC = () => {
             </ul>
           </article>
 
-          <article className="border border-line rounded-lg p-4 sm:p-5 bg-paper">
+          <article className="card-frame p-4 sm:p-5">
             <h3 className="type-block-title mb-3">Languages</h3>
             <ul className="flex flex-wrap gap-x-8 gap-y-2">
               {CV_LANGUAGES.map((lang) => (

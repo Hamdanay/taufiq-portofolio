@@ -38,7 +38,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal }) => {
         <button
           type="button"
           onClick={onOpenCvModal}
-          className="shrink-0 px-4 py-2 type-ui bg-ink text-paper rounded-md hover:bg-accent transition-colors focus-ring cursor-pointer"
+          className="shrink-0 btn-primary focus-ring cursor-pointer"
         >
           CV
         </button>

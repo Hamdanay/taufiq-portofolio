@@ -54,7 +54,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose, onDownload })
               onDownload();
               onClose();
             }}
-            className="flex-1 py-2.5 px-4 rounded-md bg-ink hover:bg-accent text-paper type-ui transition-colors flex items-center justify-center gap-2 focus-ring"
+            className="flex-1 btn-primary focus-ring flex items-center justify-center gap-2"
           >
             <Download className="w-4 h-4" />
             Unduh PDF
@@ -64,7 +64,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose, onDownload })
             href={CV_PDF_PATH}
             target="_blank"
             rel="noopener noreferrer"
-            className="py-2.5 px-4 rounded-md border border-line type-ui hover:bg-surface transition-colors flex items-center justify-center gap-2 focus-ring text-ink"
+            className="btn-secondary focus-ring flex items-center justify-center gap-2"
           >
             <ExternalLink className="w-4 h-4" />
             Buka di tab baru

@@ -6,7 +6,7 @@ export const CV_PDF_FILENAME = 'Taufiqurrahman Hamdan Al Ayubi - CV.pdf';
 export const BIODATA = {
   fullName: 'Taufiqurrahman Hamdan Al Ayubi',
   shortName: 'Taufiq',
-  headline: 'Computer Science Student | Binus University',
+  headline: 'Mahasiswa Ilmu Komputer · Universitas Bina Nusantara',
   phone: '+62 822 8803 9540',
   phoneHref: 'tel:+6282288039540',
   email: 'urrahmantaufiq00@gmail.com',
@@ -19,24 +19,48 @@ export const BIODATA = {
 };
 
 export const HERO_STATS = [
-  { value: '2+', label: 'Tahun Belajar & Praktik' },
-  { value: '2', label: 'Proyek Portfolio' },
+  { value: '3', label: 'Sertifikat teknis (Google & Hacktiv8)' },
+  { value: '2 bln', label: 'Magang Khidmah · Thursina IIBS 2023' },
+  { value: '6+', label: 'Stack inti: web, cloud, dan AI' },
 ];
 
 export const HERO_SKILL_TAGS = [
-  'Cloud Infrastructure',
-  'Web Development',
+  'Infrastruktur cloud',
+  'Pengembangan web',
   'Python',
-  'UI/UX Design',
-  'LLM & AI Agent',
+  'Desain UI/UX',
+  'LLM & agen AI',
   'MySQL',
   'GitHub',
   'LinkedIn',
 ];
 
-export const CV_SUMMARY = `I am an Informatics student at BINUS University focusing on Software Engineering and Cloud Technology. My main interests lie in web development, cloud infrastructure, and applied Deep Learning, supported by certifications in Google Cloud, Large Language Models, AI Agents, and UI/UX Design. I also gained practical experience through a Khidmah program at Thursina IIBS Unit Administration and Data Center (May–June 2023), where I was involved in IT infrastructure and system support operations.
+export const CV_SUMMARY = `Saya mahasiswa Ilmu Komputer di Universitas Bina Nusantara dengan fokus Software Engineering dan teknologi cloud. Minat utama saya pada pengembangan web, infrastruktur cloud, dan penerapan deep learning, didukung sertifikasi Google Cloud, Large Language Models, AI Agents, serta UI/UX Design.
 
-Looking ahead, I aim to deepen my expertise in cloud computing and Deep Learning while expanding real-world software development experience. My goal is to contribute to innovative technology projects and grow as a skilled engineer who creates meaningful impact.`;
+Pengalaman praktis saya meliputi Program Khidmah di Unit Administrasi dan Data Center Thursina IIBS (Mei–Juni 2023), termasuk dukungan infrastruktur IT dan operasional sistem.
+
+Ke depan, saya ingin memperdalam cloud computing dan deep learning sambil menambah pengalaman pengembangan software di dunia nyata, serta berkontribusi pada proyek teknologi yang berdampak.`;
+
+export const STACK_EXPERTISE = [
+  {
+    id: 'cloud',
+    title: 'Cloud & infrastruktur',
+    summary: 'Perancangan diagram arsitektur dan fondasi GCP dari sertifikasi Google.',
+    items: ['Google Cloud Platform', 'Konsep cloud & Linux dasar', 'Prompt engineering'],
+  },
+  {
+    id: 'web',
+    title: 'Pengembangan web',
+    summary: 'Stack full-stack dari CV untuk API, backend, dan antarmuka.',
+    items: ['HTML, CSS, JavaScript', 'PHP, Laravel, Node.js', 'REST API & MySQL'],
+  },
+  {
+    id: 'ai',
+    title: 'AI & produktivitas',
+    summary: 'Eksplorasi LLM dan alat AI untuk alur kerja pemrograman.',
+    items: ['Large Language Models', 'AI agent untuk programming', 'Figma & alat desain'],
+  },
+];
 
 export const CV_EDUCATION = [
   {
@@ -55,64 +79,67 @@ export const CV_EDUCATION = [
 
 export const CV_CERTIFICATES = [
   {
-    period: '09/2026 – Present',
+    period: '09/2026 – sekarang',
     title: 'Cloud Computing Foundations Certificate',
     issuer: 'Google',
     credentialId: '725cc765-5ba3-4539-8a06-1b7d5784225a',
+    verifyUrl: 'https://cloud.google.com/learn/certification',
   },
   {
-    period: '06/2026 – Present',
+    period: '06/2026 – sekarang',
     title: 'Intro to Large Language Models',
     issuer: 'Hacktiv8 Indonesia',
+    verifyUrl: 'https://hacktiv8.com/',
   },
   {
-    period: '06/2026 – Present',
+    period: '06/2026 – sekarang',
     title: 'IT – AI Agent for Programming',
     issuer: 'Hacktiv8 Indonesia',
     credentialId: '01338/H8/CSR/ISUE/V/2026',
+    verifyUrl: 'https://hacktiv8.com/',
   },
 ];
 
 export const CV_LANGUAGES = [
-  { language: 'English', level: 'Intermediate' },
-  { language: 'Indonesia', level: 'Native' },
+  { language: 'Bahasa Indonesia', level: 'Bahasa ibu' },
+  { language: 'Bahasa Inggris', level: 'Menengah' },
 ];
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    title: 'Cloud & infrastructure',
+    title: 'Cloud & infrastruktur',
     iconName: 'cloud',
-    description: 'From the Skills section of my CV.',
+    description: 'Keahlian dari bagian Skills pada CV.',
     skills: [
-      { name: 'Prompt Engineering', level: 'Listed skill' },
+      { name: 'Prompt engineering', level: 'Tercantum di CV' },
       {
-        name: 'Cloud Infrastructure (Google Cloud Platform, basic cloud concepts, basic Linux)',
-        level: 'Listed skill',
+        name: 'Infrastruktur cloud (GCP, konsep cloud dasar, Linux dasar)',
+        level: 'Tercantum di CV',
       },
     ],
   },
   {
-    title: 'Development & data',
+    title: 'Pengembangan & data',
     iconName: 'code',
-    description: 'Web, app, database, and programming stack.',
+    description: 'Web, aplikasi, basis data, dan bahasa pemrograman.',
     skills: [
-      { name: 'Database: MySQL / PostgreSQL', level: 'Listed skill' },
+      { name: 'Basis data: MySQL / PostgreSQL', level: 'Tercantum di CV' },
       {
-        name: 'Web & App Development: HTML, CSS, JavaScript, PHP, Laravel, Node.js, REST API',
-        level: 'Listed skill',
+        name: 'Web & aplikasi: HTML, CSS, JavaScript, PHP, Laravel, Node.js, REST API',
+        level: 'Tercantum di CV',
       },
-      { name: 'Programming: Python, C, PHP, JavaScript', level: 'Listed skill' },
-      { name: 'Basic UI/UX Design', level: 'Listed skill' },
+      { name: 'Pemrograman: Python, C, PHP, JavaScript', level: 'Tercantum di CV' },
+      { name: 'Desain UI/UX dasar', level: 'Tercantum di CV' },
     ],
   },
   {
-    title: 'Tools',
+    title: 'Alat bantu',
     iconName: 'cpu',
-    description: 'Software I use for building and design work.',
+    description: 'Perangkat lunak untuk membangun dan mendesain.',
     skills: [
       {
-        name: 'Visual Studio Code, GitHub, Canva, Figma, LLM tools',
-        level: 'Listed skill',
+        name: 'Visual Studio Code, GitHub, Canva, Figma, alat LLM',
+        level: 'Tercantum di CV',
       },
     ],
   },

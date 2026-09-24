@@ -1,40 +1,42 @@
 import React from 'react';
-
-const topics = [
-  {
-    title: 'Self-checkout clients',
-    body:
-      'Terminal di toko sebagai entry point sistem self-checkout supermarket (proyek simulasi cloud).',
-  },
-  {
-    title: 'Application & integration',
-    body: 'Layanan checkout, pembayaran, dan integrasi — lapisan tengah pada diagram arsitektur.',
-  },
-  {
-    title: 'Data & persistence',
-    body: 'Database dan penyimpanan untuk katalog, transaksi, dan data operasional.',
-  },
-];
+import { STACK_EXPERTISE } from '../data/cvData';
+import { useReveal } from '../hooks/useReveal';
 
 export const ArchitectureExplorer: React.FC = () => {
+  const { ref, visible } = useReveal<HTMLElement>();
+
   return (
-    <section id="architecture-explorer" className="section-pad">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+    <section
+      id="expertise"
+      ref={ref}
+      className={`section-pad reveal-section ${visible ? 'is-visible' : ''}`}
+    >
+      <div className="page-container">
         <header className="mb-8 max-w-2xl">
-          <p className="section-eyebrow">Expertise</p>
-          <h2 className="type-section mb-3">
-            Core <span>services</span>
-          </h2>
+          <h2 className="type-section mb-3">Keahlian inti</h2>
           <p className="type-body-tight">
-            Fokus layanan dan pola arsitektur dari proyek cloud infrastructure simulation pada CV.
+            Ringkasan stack praktis dari CV — dipetakan ke cloud, web, dan AI, bukan duplikasi detail
+            proyek.
           </p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {topics.map((topic) => (
-            <article key={topic.title} className="glass-card p-5">
+          {STACK_EXPERTISE.map((topic, i) => (
+            <article
+              key={topic.id}
+              className="glass-card expertise-card p-6"
+              style={{ transitionDelay: `${i * 80}ms` }}
+            >
               <h3 className="type-block-title mb-2">{topic.title}</h3>
-              <p className="type-body-tight">{topic.body}</p>
+              <p className="type-body-tight mb-4">{topic.summary}</p>
+              <ul className="space-y-2">
+                {topic.items.map((item) => (
+                  <li key={item} className="text-sm text-ink font-medium flex gap-2">
+                    <span className="text-accent" aria-hidden>•</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </article>
           ))}
         </div>

@@ -14,7 +14,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose, onDownload })
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-5 bg-black/70 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center p-5 bg-ink/50 backdrop-blur-md"
       role="dialog"
       aria-modal="true"
       aria-labelledby="cv-modal-title"
@@ -26,7 +26,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose, onDownload })
       >
         <div className="flex items-start justify-between gap-4">
           <h3 id="cv-modal-title" className="type-block-title text-lg">
-            Curriculum vitae
+            Curriculum Vitae
           </h3>
           <button
             type="button"

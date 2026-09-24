@@ -7,22 +7,21 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onOpenCv }) => {
   return (
-    <footer className="mt-8 py-12 border-t border-line bg-surface/40 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+    <footer className="py-10 border-t border-line">
+      <div className="page-container flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
         <div>
-          <p className="font-display text-lg text-accent mb-1">Profil</p>
           <p className="text-sm text-muted">
             © {new Date().getFullYear()} {BIODATA.fullName}
           </p>
         </div>
-        <div className="flex flex-wrap items-center gap-5 text-sm">
+        <div className="flex flex-wrap items-center gap-3 text-sm">
           <button type="button" onClick={onOpenCv} className="btn-outline btn-sm focus-ring">
             Unduh CV
           </button>
-          <a href={BIODATA.githubUrl} target="_blank" rel="noreferrer" className="text-muted hover-underline-stretch focus-ring">
+          <a href={BIODATA.githubUrl} target="_blank" rel="noreferrer" className="btn-ghost btn-sm focus-ring">
             GitHub
           </a>
-          <a href={BIODATA.linkedinUrl} target="_blank" rel="noreferrer" className="text-muted hover-underline-stretch focus-ring">
+          <a href={BIODATA.linkedinUrl} target="_blank" rel="noreferrer" className="btn-ghost btn-sm focus-ring">
             LinkedIn
           </a>
         </div>

@@ -5,10 +5,9 @@ import { useReveal } from '../hooks/useReveal';
 
 interface ContactSectionProps {
   onCopyEmail: () => void;
-  onOpenCv: () => void;
 }
 
-export const ContactSection: React.FC<ContactSectionProps> = ({ onCopyEmail, onOpenCv }) => {
+export const ContactSection: React.FC<ContactSectionProps> = ({ onCopyEmail }) => {
   const { ref, visible } = useReveal<HTMLElement>();
 
   return (
@@ -20,30 +19,22 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCopyEmail, onO
       <div className="page-container">
         <div className="contact-panel">
           <div className="contact-panel__glow" aria-hidden />
-          <div className="grid lg:grid-cols-[1.2fr_1fr] gap-10 items-end">
+          <div className="grid lg:grid-cols-[1.2fr_1fr] gap-8 items-center">
             <div>
-              <h2 className="type-section mb-4">Mari berkolaborasi.</h2>
+              <h2 className="type-section mb-4">Mari berkolaborasi</h2>
               <p className="type-body max-w-md">
-                Terbuka untuk proyek cloud, web, atau eksplorasi AI. Salin email, telepon, atau unduh CV
-                untuk detail lengkap.
+                Terbuka untuk proyek cloud, web, atau eksplorasi AI. Salin alamat email di bawah untuk
+                menghubungi saya.
               </p>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:justify-end contact-actions min-w-0">
-              <button type="button" onClick={onCopyEmail} className="btn-solid focus-ring text-left sm:text-center min-w-0">
-                <span className="truncate block sm:inline max-w-full">{BIODATA.email}</span>
-                <ArrowUpRight className="w-4 h-4 shrink-0" aria-hidden />
-              </button>
-              <a href={BIODATA.phoneHref} className="btn-outline focus-ring">
-                {BIODATA.phone}
-              </a>
-              <a
-                href={`mailto:${BIODATA.email}`}
-                className="btn-ghost focus-ring sm:hidden"
+            <div className="flex flex-col gap-3 contact-actions min-w-0">
+              <button
+                type="button"
+                onClick={onCopyEmail}
+                className="btn-solid focus-ring min-w-0 justify-center"
               >
-                Kirim email
-              </a>
-              <button type="button" onClick={onOpenCv} className="btn-ghost focus-ring">
-                Unduh CV
+                <span className="truncate max-w-full">{BIODATA.email}</span>
+                <ArrowUpRight className="w-4 h-4 shrink-0" aria-hidden />
               </button>
             </div>
           </div>

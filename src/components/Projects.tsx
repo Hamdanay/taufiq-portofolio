@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { Project } from '../types/portfolio';
+import type { ArchitectureNode, Project } from '../types/portfolio';
 import { useReveal } from '../hooks/useReveal';
 
 interface ProjectsProps {
@@ -10,9 +10,17 @@ type ProjectTab = 'overview' | 'diagram' | 'code';
 
 const categoryClass = (category: string) => {
   const key = category.toLowerCase();
-  if (key.includes('cloud')) return 'project-card--cloud';
-  if (key.includes('experience') || key.includes('magang')) return 'project-card--experience';
+  if (key.includes('cloud') || key.includes('infrastruktur')) return 'project-card--cloud';
+  if (key.includes('pengalaman') || key.includes('magang')) return 'project-card--experience';
   return 'project-card--default';
+};
+
+const nodeTypeLabel: Record<ArchitectureNode['type'], string> = {
+  entry: 'Masukan',
+  gateway: 'Integrasi',
+  compute: 'Proses',
+  cache: 'Cache',
+  database: 'Data',
 };
 
 export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
@@ -32,14 +40,14 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
     <section
       id="projects"
       ref={ref}
-      className={`section-pad bg-surface/50 reveal-section ${visible ? 'is-visible' : ''}`}
+      className={`section-pad reveal-section ${visible ? 'is-visible' : ''}`}
     >
       <div className="page-container">
-        <header className="mb-10 max-w-2xl">
+        <header className="mb-8 max-w-2xl">
           <h2 className="type-section mb-3">Karya terpilih</h2>
           <p className="type-body-tight">
-            Dua highlight dari CV: simulasi arsitektur cloud dan pengalaman Program Khidmah di Thursina
-            IIBS.
+            Ringkasan proyek dan pengalaman dari CV. Proyek kode tambahan sedang saya kerjakan dan
+            akan ditambahkan setelah siap dipublikasikan.
           </p>
         </header>
 
@@ -102,6 +110,17 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             {activeTab === 'overview' && (
               <div className="space-y-8 max-w-2xl">
                 <p className="type-body">{selectedProject.description}</p>
+                <div>
+                  <h4 className="type-block-title mb-3">Sorotan</h4>
+                  <ul className="space-y-2">
+                    {selectedProject.highlights.map((item) => (
+                      <li key={item} className="text-sm text-muted flex gap-2 break-anywhere">
+                        <span className="text-accent shrink-0" aria-hidden>•</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
                 <ul className="flex flex-wrap gap-2">
                   {selectedProject.tags.map((tag) => (
                     <li key={tag} className="tag-pill text-xs py-1.5">{tag}</li>
@@ -129,7 +148,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     <span className="type-meta w-7">{String(index + 1).padStart(2, '0')}</span>
                     <div>
                       <p className="text-ink text-sm font-semibold">{node.label}</p>
-                      <p className="type-meta mt-1 capitalize">{node.type}</p>
+                      <p className="type-meta mt-1">{nodeTypeLabel[node.type]}</p>
                     </div>
                   </li>
                 ))}

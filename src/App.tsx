@@ -26,9 +26,13 @@ export function App() {
     setTimeout(() => setToastMessage(''), 3000);
   };
 
-  const copyEmailToClipboard = () => {
-    navigator.clipboard.writeText(BIODATA.email);
-    showToast('Email disalin ke clipboard.');
+  const copyEmailToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(BIODATA.email);
+      showToast('Email disalin ke clipboard.');
+    } catch {
+      showToast('Gagal menyalin. Gunakan alamat email secara manual.');
+    }
   };
 
   const copyCredential = (id: string) => {
@@ -55,10 +59,7 @@ export function App() {
 
         <ArchitectureExplorer />
 
-        <ContactSection
-          onCopyEmail={copyEmailToClipboard}
-          onOpenCv={() => setShowCvModal(true)}
-        />
+        <ContactSection onCopyEmail={copyEmailToClipboard} />
       </main>
 
       <Footer onOpenCv={() => setShowCvModal(true)} />

@@ -1,14 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { BIODATA, HERO_STATS } from '../data/cvData';
-import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
-
-const ROTATING_ROLES = [
-  'Infrastruktur cloud',
-  'Pengembangan web',
-  'Eksplorasi AI & LLM',
-  'Rekayasa perangkat lunak',
-];
+import { ProfileSocialLinks } from './ProfileSocialLinks';
 
 interface HeroProps {
   profileImage: string;
@@ -16,19 +9,7 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ profileImage, onOpenCv }) => {
-  const [roleIndex, setRoleIndex] = useState(0);
-  const reducedMotion = usePrefersReducedMotion();
-
-  useEffect(() => {
-    if (reducedMotion) return;
-    const id = window.setInterval(() => {
-      setRoleIndex((i) => (i + 1) % ROTATING_ROLES.length);
-    }, 2800);
-    return () => window.clearInterval(id);
-  }, [reducedMotion]);
-
   const nameParts = BIODATA.fullName.split(' ');
-  const displayRole = reducedMotion ? ROTATING_ROLES[0] : ROTATING_ROLES[roleIndex];
 
   return (
     <section id="hero" className="section-pad pt-6 sm:pt-12 overflow-hidden">
@@ -36,22 +17,18 @@ export const Hero: React.FC<HeroProps> = ({ profileImage, onOpenCv }) => {
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-16 items-center hero-layout">
           <div className="space-y-6 sm:space-y-8 min-w-0 order-2 lg:order-1">
             <header className="hero-enter min-w-0">
-              <p className="type-hero-greet">Halo 👋</p>
+              <p className="type-hero-greet">Perkenalkan,</p>
               <h1 className="type-hero-title">
                 {nameParts.slice(0, 2).join(' ')}
                 <br />
                 {nameParts.slice(2).join(' ') || nameParts[1]}
               </h1>
-              <p className="type-body max-w-xl mt-4 sm:mt-6">
+              <p className="type-body max-w-xl mt-4 sm:mt-5">
                 <span className="text-ink font-semibold">{BIODATA.headline}</span>
                 <span className="text-muted"> — {BIODATA.location}</span>
               </p>
-              <p className="mt-3 sm:mt-4 text-sm font-semibold text-secondary hero-focus-line">
-                <span>Fokus saat ini:</span>
-                <span className="role-rotator" aria-live={reducedMotion ? 'off' : 'polite'}>
-                  <span key={displayRole} className="role-rotator__word">{displayRole}</span>
-                </span>
-              </p>
+              <p className="hero-tagline mt-4 max-w-xl">{BIODATA.tagline}</p>
+              <ProfileSocialLinks className="mt-5" size="sm" />
             </header>
 
             <div className="btn-stack-mobile hero-enter hero-enter-delay-1">
@@ -67,7 +44,7 @@ export const Hero: React.FC<HeroProps> = ({ profileImage, onOpenCv }) => {
               </a>
             </div>
 
-            <div className="grid grid-cols-1 min-[400px]:grid-cols-3 gap-3 sm:gap-4 hero-enter hero-enter-delay-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 hero-enter hero-enter-delay-2">
               {HERO_STATS.map((stat) => (
                 <div key={stat.label} className="glass-card px-4 py-3.5 sm:px-5 sm:py-4 min-w-0">
                   <p className="type-stat-num">{stat.value}</p>

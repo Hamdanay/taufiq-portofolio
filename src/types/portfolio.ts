@@ -15,21 +15,10 @@ export interface Project {
   subtitle: string;
   category: string;
   description: string;
+  highlights: string[];
   tags: string[];
   metrics: Metric[];
   architectureOverview: string;
   terraformSnippet: string;
   architectureNodes: ArchitectureNode[];
-}
-
-export interface SkillItem {
-  name: string;
-  level: string;
-}
-
-export interface SkillCategory {
-  title: string;
-  iconName: 'cloud' | 'code' | 'cpu';
-  description: string;
-  skills: SkillItem[];
 }

@@ -1,1 +1,1 @@
-export { PROJECTS, SKILL_CATEGORIES } from './cvData';
+export { PROJECTS } from './cvData';

@@ -1,4 +1,4 @@
-import type { Project, SkillCategory } from '../types/portfolio';
+import type { Project } from '../types/portfolio';
 
 export const CV_PDF_PATH = '/Taufiqurrahman Hamdan Al Ayubi - CV.pdf';
 export const CV_PDF_FILENAME = 'Taufiqurrahman Hamdan Al Ayubi - CV.pdf';
@@ -7,8 +7,8 @@ export const BIODATA = {
   fullName: 'Taufiqurrahman Hamdan Al Ayubi',
   shortName: 'Taufiq',
   headline: 'Mahasiswa Ilmu Komputer · Universitas Bina Nusantara',
-  phone: '+62 822 8803 9540',
-  phoneHref: 'tel:+6282288039540',
+  tagline:
+    'Mencari peluang magang atau peran junior di cloud, pengembangan web, dan eksplorasi AI — siap belajar cepat dan berkontribusi pada tim.',
   email: 'urrahmantaufiq00@gmail.com',
   linkedinUrl: 'https://www.linkedin.com/in/taufiqurrahman-hamdan-al-ayubi-48bb44229/',
   linkedinLabel: 'LinkedIn',
@@ -21,7 +21,15 @@ export const BIODATA = {
 export const HERO_STATS = [
   { value: '3', label: 'Sertifikat teknis (Google & Hacktiv8)' },
   { value: '2 bln', label: 'Magang Khidmah · Thursina IIBS 2023' },
-  { value: '6+', label: 'Stack inti: web, cloud, dan AI' },
+  { value: '2', label: 'Proyek di portofolio' },
+];
+
+export const TOOL_SKILLS = [
+  'Visual Studio Code',
+  'GitHub',
+  'Figma',
+  'Canva',
+  'Alat LLM',
 ];
 
 export const HERO_SKILL_TAGS = [
@@ -35,11 +43,9 @@ export const HERO_SKILL_TAGS = [
   'LinkedIn',
 ];
 
-export const CV_SUMMARY = `Saya mahasiswa Ilmu Komputer di Universitas Bina Nusantara dengan fokus Software Engineering dan teknologi cloud. Minat utama saya pada pengembangan web, infrastruktur cloud, dan penerapan deep learning, didukung sertifikasi Google Cloud, Large Language Models, AI Agents, serta UI/UX Design.
+export const CV_SUMMARY = `Saya mahasiswa Ilmu Komputer di BINUS dengan fokus Software Engineering dan cloud. Minat utama pada web, infrastruktur cloud, dan AI, didukung sertifikasi Google Cloud, LLM, AI Agents, serta UI/UX.
 
-Pengalaman praktis saya meliputi Program Khidmah di Unit Administrasi dan Data Center Thursina IIBS (Mei–Juni 2023), termasuk dukungan infrastruktur IT dan operasional sistem.
-
-Ke depan, saya ingin memperdalam cloud computing dan deep learning sambil menambah pengalaman pengembangan software di dunia nyata, serta berkontribusi pada proyek teknologi yang berdampak.`;
+Pengalaman praktis meliputi Program Khidmah di Unit Administrasi dan Data Center Thursina IIBS (Mei–Juni 2023): dukungan infrastruktur IT dan operasional sistem.`;
 
 export const STACK_EXPERTISE = [
   {
@@ -51,7 +57,7 @@ export const STACK_EXPERTISE = [
   {
     id: 'web',
     title: 'Pengembangan web',
-    summary: 'Stack full-stack dari CV untuk API, backend, dan antarmuka.',
+    summary: 'API, backend, dan antarmuka untuk aplikasi web.',
     items: ['HTML, CSS, JavaScript', 'PHP, Laravel, Node.js', 'REST API & MySQL'],
   },
   {
@@ -64,7 +70,7 @@ export const STACK_EXPERTISE = [
 
 export const CV_EDUCATION = [
   {
-    period: '09/2024 – Present',
+    period: '09/2024 – sekarang',
     title: 'Computer Science',
     institution: 'Universitas Bina Nusantara',
     detail: 'Bachelor',
@@ -105,62 +111,27 @@ export const CV_LANGUAGES = [
   { language: 'Bahasa Inggris', level: 'Menengah' },
 ];
 
-export const SKILL_CATEGORIES: SkillCategory[] = [
-  {
-    title: 'Cloud & infrastruktur',
-    iconName: 'cloud',
-    description: 'Keahlian dari bagian Skills pada CV.',
-    skills: [
-      { name: 'Prompt engineering', level: 'Tercantum di CV' },
-      {
-        name: 'Infrastruktur cloud (GCP, konsep cloud dasar, Linux dasar)',
-        level: 'Tercantum di CV',
-      },
-    ],
-  },
-  {
-    title: 'Pengembangan & data',
-    iconName: 'code',
-    description: 'Web, aplikasi, basis data, dan bahasa pemrograman.',
-    skills: [
-      { name: 'Basis data: MySQL / PostgreSQL', level: 'Tercantum di CV' },
-      {
-        name: 'Web & aplikasi: HTML, CSS, JavaScript, PHP, Laravel, Node.js, REST API',
-        level: 'Tercantum di CV',
-      },
-      { name: 'Pemrograman: Python, C, PHP, JavaScript', level: 'Tercantum di CV' },
-      { name: 'Desain UI/UX dasar', level: 'Tercantum di CV' },
-    ],
-  },
-  {
-    title: 'Alat bantu',
-    iconName: 'cpu',
-    description: 'Perangkat lunak untuk membangun dan mendesain.',
-    skills: [
-      {
-        name: 'Visual Studio Code, GitHub, Canva, Figma, alat LLM',
-        level: 'Tercantum di CV',
-      },
-    ],
-  },
-];
-
 export const PROJECTS: Project[] = [
   {
     id: 'proj-1',
-    title: 'Cloud Infrastructure Simulation',
-    subtitle: 'Independent tech project · May 2026',
-    category: 'Cloud infrastructure',
+    title: 'Simulasi infrastruktur cloud',
+    subtitle: 'Proyek mandiri · Mei 2026',
+    category: 'Infrastruktur cloud',
     description:
-      'Designed a comprehensive cloud infrastructure architecture diagram for a supermarket self-checkout system.',
-    tags: ['Cloud architecture', 'System design', 'Self-checkout', 'Infrastructure diagram'],
+      'Merancang diagram arsitektur cloud untuk sistem self-checkout supermarket, dari terminal di toko hingga layanan aplikasi dan penyimpanan data.',
+    highlights: [
+      'Konteks: alur checkout mandiri di supermarket skala menengah.',
+      'Peran: perancang arsitektur dan dokumentasi infrastruktur.',
+      'Hasil: diagram end-to-end (klien, API, layanan, database).',
+    ],
+    tags: ['Arsitektur cloud', 'Desain sistem', 'Self-checkout', 'Diagram infrastruktur'],
     metrics: [
-      { label: 'Period', value: '05/2026' },
-      { label: 'Type', value: 'Independent project' },
-      { label: 'Focus', value: 'Architecture diagram' },
+      { label: 'Periode', value: '05/2026' },
+      { label: 'Jenis', value: 'Proyek mandiri' },
+      { label: 'Fokus', value: 'Diagram arsitektur' },
     ],
     architectureOverview:
-      'End-to-end cloud layout for a supermarket self-checkout flow: client terminals, application services, and backing data stores documented as an infrastructure diagram.',
+      'Alur cloud untuk self-checkout: terminal di toko, lapisan API/integrasi, layanan aplikasi, serta database transaksi dan katalog — divisualkan dalam satu diagram infrastruktur.',
     terraformSnippet: `# Cloud infrastructure simulation — self-checkout (conceptual)
 components:
   - id: checkout_client
@@ -172,27 +143,32 @@ components:
   - id: database
     role: "Transactional & catalog data"`,
     architectureNodes: [
-      { id: 'client', label: 'Self-checkout terminals', type: 'entry' },
-      { id: 'gateway', label: 'API / integration layer', type: 'gateway' },
-      { id: 'services', label: 'Application services', type: 'compute' },
-      { id: 'data', label: 'Database & storage', type: 'database' },
+      { id: 'client', label: 'Terminal self-checkout', type: 'entry' },
+      { id: 'gateway', label: 'Lapisan API & integrasi', type: 'gateway' },
+      { id: 'services', label: 'Layanan aplikasi', type: 'compute' },
+      { id: 'data', label: 'Database & penyimpanan', type: 'database' },
     ],
   },
   {
     id: 'proj-2',
-    title: 'Data Center & Administration Intern (Program Khidmah)',
-    subtitle: 'Thursina International Islamic Boarding School (IIBS) · May–June 2023',
-    category: 'Experience',
+    title: 'Magang data center & administrasi (Khidmah)',
+    subtitle: 'Thursina IIBS · Mei–Juni 2023',
+    category: 'Pengalaman',
     description:
-      'Responsible for sorting and organizing student graduation data for both Junior High School (SMP) and Senior High School (SMA) levels in preparation for the graduation ceremony. Assisted in data verification, administration support, and ensuring accurate records within the school’s data center operations.',
-    tags: ['Data center', 'Administration', 'Data verification', 'Khidmah'],
+      'Mengelola dan merapikan data kelulusan siswa SMP/SMA, verifikasi berkas, serta dukungan administrasi di unit data center menjelang acara wisuda.',
+    highlights: [
+      'Konteks: persiapan data kelulusan SMP dan SMA.',
+      'Peran: pengelolaan data, verifikasi, dan dukungan administrasi.',
+      'Hasil: data siap pakai dan akurat untuk upacara kelulusan.',
+    ],
+    tags: ['Data center', 'Administrasi', 'Verifikasi data', 'Khidmah'],
     metrics: [
-      { label: 'Period', value: '05/2023 – 06/2023' },
-      { label: 'Role', value: 'Data Center & Administration Intern' },
-      { label: 'Location', value: 'Thursina IIBS' },
+      { label: 'Periode', value: '05/2023 – 06/2023' },
+      { label: 'Peran', value: 'Magang data center & administrasi' },
+      { label: 'Lokasi', value: 'Thursina IIBS' },
     ],
     architectureOverview:
-      'Supported Unit Administration and Data Center: graduation datasets for SMP and SMA, verification workflows, and accurate records for ceremony preparation.',
+      'Alur kerja: kumpulan data kelulusan → verifikasi → dukungan administrasi → arsip data center yang siap digunakan untuk wisuda.',
     terraformSnippet: `// Khidmah — data center & administration (May–June 2023)
 const responsibilities = [
   "Sort & organize SMP/SMA graduation data",
@@ -200,10 +176,10 @@ const responsibilities = [
   "Administration support in data center operations",
 ];`,
     architectureNodes: [
-      { id: 'records', label: 'Graduation datasets (SMP / SMA)', type: 'entry' },
-      { id: 'verify', label: 'Data verification', type: 'gateway' },
-      { id: 'admin', label: 'Administration support', type: 'compute' },
-      { id: 'dc', label: 'Data center records', type: 'database' },
+      { id: 'records', label: 'Data kelulusan SMP / SMA', type: 'entry' },
+      { id: 'verify', label: 'Verifikasi data', type: 'gateway' },
+      { id: 'admin', label: 'Dukungan administrasi', type: 'compute' },
+      { id: 'dc', label: 'Arsip data center', type: 'database' },
     ],
   },
 ];

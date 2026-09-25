@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { NAV_LINKS } from '../constants/sections';
+import { ProfileSocialLinks } from './ProfileSocialLinks';
 import type { SectionId } from '../constants/sections';
 
 interface NavbarProps {
@@ -53,6 +54,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal, activeSection }) 
         </nav>
 
         <div className="nav-actions">
+          <ProfileSocialLinks className="hidden lg:flex" size="sm" />
           <button
             type="button"
             className="md:hidden p-2 rounded-full text-ink hover:bg-surface-alt focus-ring"
@@ -113,6 +115,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal, activeSection }) 
               >
                 Unduh CV
               </button>
+              <ProfileSocialLinks className="px-2 pt-2 flex-col items-stretch" size="sm" />
             </nav>
           </div>
         </>

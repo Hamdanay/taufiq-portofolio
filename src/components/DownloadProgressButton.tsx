@@ -17,7 +17,7 @@ async function fetchAndSave(
   filename: string,
   onProgress: (percent: number) => void
 ): Promise<void> {
-  const response = await fetch(href);
+  const response = await fetch(encodeURI(href));
   if (!response.ok) throw new Error('Download failed');
 
   const contentLength = response.headers.get('Content-Length');

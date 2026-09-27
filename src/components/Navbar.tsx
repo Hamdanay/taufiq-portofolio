@@ -34,10 +34,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal, activeSection }) 
           href="#hero"
           className="nav-brand font-display font-bold text-ink focus-ring rounded-md py-1 shrink"
         >
-          Portofolio
+          Portfolio
         </a>
 
-        <nav className="hidden md:flex items-center justify-center gap-1 flex-1 min-w-0" aria-label="Utama">
+        <nav className="hidden md:flex items-center justify-center gap-1 flex-1 min-w-0" aria-label="Main">
           {NAV_LINKS.map((link) => {
             const isActive = activeSection === link.id;
             return (
@@ -60,7 +60,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal, activeSection }) 
             className="md:hidden p-2 rounded-full text-ink hover:bg-surface-alt focus-ring"
             aria-expanded={menuOpen}
             aria-controls="mobile-nav-drawer"
-            aria-label={menuOpen ? 'Tutup menu' : 'Buka menu'}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             onClick={() => setMenuOpen((o) => !o)}
           >
             {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -73,8 +73,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal, activeSection }) 
             CV
           </button>
           <a href="#contact" className="btn-solid btn-sm focus-ring max-[380px]:px-3 max-[380px]:text-xs">
-            <span className="max-[380px]:hidden">Kontak</span>
-            <span className="hidden max-[380px]:inline">Hubungi</span>
+            Contact
           </a>
         </div>
       </div>
@@ -87,10 +86,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal, activeSection }) 
             className="mobile-nav-drawer md:hidden"
             role="dialog"
             aria-modal="true"
-            aria-label="Menu navigasi"
+            aria-label="Navigation menu"
             onClick={(e) => e.stopPropagation()}
           >
-            <nav className="mobile-nav-drawer__inner" aria-label="Menu utama">
+            <nav className="mobile-nav-drawer__inner" aria-label="Main menu">
               {NAV_LINKS.map((link) => {
                 const isActive = activeSection === link.id;
                 return (
@@ -113,7 +112,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal, activeSection }) 
                 }}
                 className="mobile-nav-drawer__link text-left focus-ring"
               >
-                Unduh CV
+                Download CV
               </button>
               <ProfileSocialLinks className="px-2 pt-2 flex-col items-stretch" size="sm" />
             </nav>

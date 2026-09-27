@@ -16,7 +16,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCv }) => {
         </div>
         <div className="flex flex-wrap items-center gap-3 text-sm">
           <button type="button" onClick={onOpenCv} className="btn-outline btn-sm focus-ring">
-            Unduh CV
+            Download CV
           </button>
           <a href={BIODATA.githubUrl} target="_blank" rel="noreferrer" className="btn-ghost btn-sm focus-ring">
             GitHub

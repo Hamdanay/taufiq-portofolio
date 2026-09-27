@@ -12,7 +12,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ activeSection 
   return (
     <nav
       className="mobile-bottom-nav md:hidden"
-      aria-label="Navigasi cepat"
+      aria-label="Quick navigation"
     >
       <ul className="mobile-bottom-nav__list">
         {MOBILE_LINKS.map((link) => {

@@ -14,7 +14,7 @@ export const SkillMatrix: React.FC<SkillMatrixProps> = ({ onCopyCredential }) =>
     <section id="about" ref={ref} className={`section-pad reveal-section ${visible ? 'is-visible' : ''}`}>
       <div className="page-container">
         <header className="max-w-2xl mb-10">
-          <h2 className="type-section mb-4">Tentang saya</h2>
+          <h2 className="type-section mb-4">About me</h2>
           <div className="space-y-4">
             {CV_SUMMARY.split('\n\n').map((paragraph) => (
               <p key={paragraph.slice(0, 32)} className="type-body">
@@ -26,7 +26,7 @@ export const SkillMatrix: React.FC<SkillMatrixProps> = ({ onCopyCredential }) =>
 
         <div className="grid md:grid-cols-2 gap-4">
           <article className="glass-card p-5 sm:p-6 h-full">
-            <h3 className="type-block-title mb-4">Pendidikan</h3>
+            <h3 className="type-block-title mb-4">Education</h3>
             <ul className="space-y-4">
               {CV_EDUCATION.map((edu) => (
                 <li key={edu.period} className="border-b border-line pb-4 last:border-0 last:pb-0">
@@ -41,7 +41,7 @@ export const SkillMatrix: React.FC<SkillMatrixProps> = ({ onCopyCredential }) =>
           </article>
 
           <article className="glass-card p-5 sm:p-6 h-full">
-            <h3 className="type-block-title mb-4">Sertifikat</h3>
+            <h3 className="type-block-title mb-4">Certificates</h3>
             <ul className="space-y-4">
               {CV_CERTIFICATES.map((cert) => (
                 <li key={cert.title} className="border-b border-line pb-4 last:border-0 last:pb-0">
@@ -56,7 +56,7 @@ export const SkillMatrix: React.FC<SkillMatrixProps> = ({ onCopyCredential }) =>
                         rel="noopener noreferrer"
                         className="tag-pill tag-pill-accent text-xs py-1 inline-flex items-center gap-1 focus-ring"
                       >
-                        Penerbit
+                        Issuer
                         <ExternalLink className="w-3 h-3" aria-hidden />
                       </a>
                     )}
@@ -66,7 +66,7 @@ export const SkillMatrix: React.FC<SkillMatrixProps> = ({ onCopyCredential }) =>
                         className="tag-pill text-xs py-1 focus-ring cursor-pointer"
                         onClick={() => onCopyCredential(cert.credentialId!)}
                       >
-                        Salin ID
+                        Copy ID
                       </button>
                     )}
                   </div>
@@ -77,7 +77,7 @@ export const SkillMatrix: React.FC<SkillMatrixProps> = ({ onCopyCredential }) =>
         </div>
 
         <article className="glass-card p-5 sm:p-6 mt-4">
-          <h3 className="type-block-title mb-3">Bahasa</h3>
+          <h3 className="type-block-title mb-3">Languages</h3>
           <ul className="flex flex-wrap gap-2">
             {CV_LANGUAGES.map((lang) => (
               <li key={lang.language} className="tag-pill">

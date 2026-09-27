@@ -29,19 +29,19 @@ export function App() {
   const copyEmailToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(BIODATA.email);
-      showToast('Email disalin ke clipboard.');
+      showToast('Email copied to clipboard.');
     } catch {
-      showToast('Gagal menyalin. Gunakan alamat email secara manual.');
+      showToast('Could not copy. Please use the email address manually.');
     }
   };
 
   const copyCredential = (id: string) => {
     navigator.clipboard.writeText(id);
-    showToast('ID sertifikat disalin.');
+    showToast('Credential ID copied.');
   };
 
   const handleDownloadCv = () => {
-    showToast('CV berhasil diunduh.');
+    showToast('CV downloaded.');
   };
 
   return (

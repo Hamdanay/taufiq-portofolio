@@ -32,7 +32,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose, onDownload })
             type="button"
             onClick={onClose}
             className="p-1.5 text-muted hover:text-ink focus-ring cursor-pointer"
-            aria-label="Tutup"
+            aria-label="Close"
           >
             <X className="w-5 h-5" />
           </button>
@@ -55,7 +55,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose, onDownload })
             className="btn-outline flex-1 focus-ring"
           >
             <ExternalLink className="w-4 h-4" aria-hidden />
-            Buka tab baru
+            Open in new tab
           </a>
         </div>
       </div>

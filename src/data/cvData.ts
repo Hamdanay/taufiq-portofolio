@@ -6,9 +6,9 @@ export const CV_PDF_FILENAME = 'Taufiqurrahman Hamdan Al Ayubi - CV.pdf';
 export const BIODATA = {
   fullName: 'Taufiqurrahman Hamdan Al Ayubi',
   shortName: 'Taufiq',
-  headline: 'Mahasiswa Ilmu Komputer · Universitas Bina Nusantara',
+  headline: 'Computer Science Student · Bina Nusantara University',
   tagline:
-    'Mencari peluang magang atau peran junior di cloud, pengembangan web, dan eksplorasi AI — siap belajar cepat dan berkontribusi pada tim.',
+    'Seeking cloud and web development internships — ready to learn quickly and contribute on real teams.',
   email: 'urrahmantaufiq00@gmail.com',
   linkedinUrl: 'https://www.linkedin.com/in/taufiqurrahman-hamdan-al-ayubi-48bb44229/',
   linkedinLabel: 'LinkedIn',
@@ -19,9 +19,9 @@ export const BIODATA = {
 };
 
 export const HERO_STATS = [
-  { value: '3', label: 'Sertifikat teknis (Google & Hacktiv8)' },
-  { value: '2 bln', label: 'Magang Khidmah · Thursina IIBS 2023' },
-  { value: '2', label: 'Proyek di portofolio' },
+  { value: '3', label: 'Technical certs (Google & Hacktiv8)' },
+  { value: '2 mo', label: 'Khidmah internship · Thursina IIBS 2023' },
+  { value: '2', label: 'Portfolio projects' },
 ];
 
 export const TOOL_SKILLS = [
@@ -29,50 +29,50 @@ export const TOOL_SKILLS = [
   'GitHub',
   'Figma',
   'Canva',
-  'Alat LLM',
+  'LLM tools',
 ];
 
 export const HERO_SKILL_TAGS = [
-  'Infrastruktur cloud',
-  'Pengembangan web',
+  'Cloud infrastructure',
+  'Web development',
   'Python',
-  'Desain UI/UX',
-  'LLM & agen AI',
+  'UI/UX design',
+  'LLM & AI agents',
   'MySQL',
   'GitHub',
   'LinkedIn',
 ];
 
-export const CV_SUMMARY = `Saya mahasiswa Ilmu Komputer di BINUS dengan fokus Software Engineering dan cloud. Minat utama pada web, infrastruktur cloud, dan AI, didukung sertifikasi Google Cloud, LLM, AI Agents, serta UI/UX.
+export const CV_SUMMARY = `Computer Science student at BINUS (software engineering & cloud). Interested in web development, cloud infrastructure, and practical AI tools.
 
-Pengalaman praktis meliputi Program Khidmah di Unit Administrasi dan Data Center Thursina IIBS (Mei–Juni 2023): dukungan infrastruktur IT dan operasional sistem.`;
+Khidmah internship (Thursina IIBS, 2023): graduation data management and verification in a data-center/administration unit—building habits in accuracy, process discipline, and IT operations support alongside my technical project and certification work.`;
 
 export const STACK_EXPERTISE = [
   {
     id: 'cloud',
-    title: 'Cloud & infrastruktur',
-    summary: 'Perancangan diagram arsitektur dan fondasi GCP dari sertifikasi Google.',
-    items: ['Google Cloud Platform', 'Konsep cloud & Linux dasar', 'Prompt engineering'],
+    title: 'Cloud & infrastructure',
+    summary: 'Architecture diagrams and GCP foundations from Google certification.',
+    items: ['Google Cloud Platform', 'Cloud concepts & basic Linux', 'Prompt engineering'],
   },
   {
     id: 'web',
-    title: 'Pengembangan web',
-    summary: 'API, backend, dan antarmuka untuk aplikasi web.',
+    title: 'Web development',
+    summary: 'APIs, backends, and interfaces for web applications.',
     items: ['HTML, CSS, JavaScript', 'PHP, Laravel, Node.js', 'REST API & MySQL'],
   },
   {
     id: 'ai',
-    title: 'AI & produktivitas',
-    summary: 'Eksplorasi LLM dan alat AI untuk alur kerja pemrograman.',
-    items: ['Large Language Models', 'AI agent untuk programming', 'Figma & alat desain'],
+    title: 'AI & productivity',
+    summary: 'Exploring LLMs and AI tools for programming workflows.',
+    items: ['Large Language Models', 'AI agents for programming', 'Figma & design tools'],
   },
 ];
 
 export const CV_EDUCATION = [
   {
-    period: '09/2024 – sekarang',
+    period: '09/2024 – Present',
     title: 'Computer Science',
-    institution: 'Universitas Bina Nusantara',
+    institution: 'Bina Nusantara University',
     detail: 'Bachelor',
   },
   {
@@ -85,20 +85,20 @@ export const CV_EDUCATION = [
 
 export const CV_CERTIFICATES = [
   {
-    period: '09/2026 – sekarang',
+    period: '09/2026 – Present',
     title: 'Cloud Computing Foundations Certificate',
     issuer: 'Google',
     credentialId: '725cc765-5ba3-4539-8a06-1b7d5784225a',
     verifyUrl: 'https://cloud.google.com/learn/certification',
   },
   {
-    period: '06/2026 – sekarang',
+    period: '06/2026 – Present',
     title: 'Intro to Large Language Models',
     issuer: 'Hacktiv8 Indonesia',
     verifyUrl: 'https://hacktiv8.com/',
   },
   {
-    period: '06/2026 – sekarang',
+    period: '06/2026 – Present',
     title: 'IT – AI Agent for Programming',
     issuer: 'Hacktiv8 Indonesia',
     credentialId: '01338/H8/CSR/ISUE/V/2026',
@@ -107,31 +107,31 @@ export const CV_CERTIFICATES = [
 ];
 
 export const CV_LANGUAGES = [
-  { language: 'Bahasa Indonesia', level: 'Bahasa ibu' },
-  { language: 'Bahasa Inggris', level: 'Menengah' },
+  { language: 'Indonesian', level: 'Native' },
+  { language: 'English', level: 'Intermediate' },
 ];
 
 export const PROJECTS: Project[] = [
   {
     id: 'proj-1',
-    title: 'Simulasi infrastruktur cloud',
-    subtitle: 'Proyek mandiri · Mei 2026',
-    category: 'Infrastruktur cloud',
+    title: 'Cloud infrastructure simulation',
+    subtitle: 'Independent project · May 2026',
+    category: 'Cloud infrastructure',
     description:
-      'Merancang diagram arsitektur cloud untuk sistem self-checkout supermarket, dari terminal di toko hingga layanan aplikasi dan penyimpanan data.',
+      'Designed a cloud architecture diagram for a supermarket self-checkout system—from in-store terminals to application services and data storage.',
     highlights: [
-      'Konteks: alur checkout mandiri di supermarket skala menengah.',
-      'Peran: perancang arsitektur dan dokumentasi infrastruktur.',
-      'Hasil: diagram end-to-end (klien, API, layanan, database).',
+      'Context: self-checkout flow for a mid-size supermarket.',
+      'Role: architecture design and infrastructure documentation.',
+      'Outcome: end-to-end diagram (clients, API, services, database).',
     ],
-    tags: ['Arsitektur cloud', 'Desain sistem', 'Self-checkout', 'Diagram infrastruktur'],
+    tags: ['Cloud architecture', 'System design', 'Self-checkout', 'Infrastructure diagram'],
     metrics: [
-      { label: 'Periode', value: '05/2026' },
-      { label: 'Jenis', value: 'Proyek mandiri' },
-      { label: 'Fokus', value: 'Diagram arsitektur' },
+      { label: 'Period', value: '05/2026' },
+      { label: 'Type', value: 'Independent project' },
+      { label: 'Focus', value: 'Architecture diagram' },
     ],
     architectureOverview:
-      'Alur cloud untuk self-checkout: terminal di toko, lapisan API/integrasi, layanan aplikasi, serta database transaksi dan katalog — divisualkan dalam satu diagram infrastruktur.',
+      'Cloud flow for self-checkout: store terminals, API/integration layer, application services, and transactional/catalog databases—documented in a single infrastructure diagram.',
     terraformSnippet: `# Cloud infrastructure simulation — self-checkout (conceptual)
 components:
   - id: checkout_client
@@ -143,32 +143,32 @@ components:
   - id: database
     role: "Transactional & catalog data"`,
     architectureNodes: [
-      { id: 'client', label: 'Terminal self-checkout', type: 'entry' },
-      { id: 'gateway', label: 'Lapisan API & integrasi', type: 'gateway' },
-      { id: 'services', label: 'Layanan aplikasi', type: 'compute' },
-      { id: 'data', label: 'Database & penyimpanan', type: 'database' },
+      { id: 'client', label: 'Self-checkout terminals', type: 'entry' },
+      { id: 'gateway', label: 'API & integration layer', type: 'gateway' },
+      { id: 'services', label: 'Application services', type: 'compute' },
+      { id: 'data', label: 'Database & storage', type: 'database' },
     ],
   },
   {
     id: 'proj-2',
-    title: 'Magang data center & administrasi (Khidmah)',
-    subtitle: 'Thursina IIBS · Mei–Juni 2023',
-    category: 'Pengalaman',
+    title: 'Data center & administration internship (Khidmah)',
+    subtitle: 'Thursina IIBS · May–June 2023',
+    category: 'Experience',
     description:
-      'Mengelola dan merapikan data kelulusan siswa SMP/SMA, verifikasi berkas, serta dukungan administrasi di unit data center menjelang acara wisuda.',
+      'Organized and verified junior/senior high school graduation data, with administration support in the data center unit ahead of graduation ceremonies.',
     highlights: [
-      'Konteks: persiapan data kelulusan SMP dan SMA.',
-      'Peran: pengelolaan data, verifikasi, dan dukungan administrasi.',
-      'Hasil: data siap pakai dan akurat untuk upacara kelulusan.',
+      'Context: graduation data preparation for junior and senior high school.',
+      'Role: data handling, verification, and administration support.',
+      'Outcome: accurate, ceremony-ready records.',
     ],
-    tags: ['Data center', 'Administrasi', 'Verifikasi data', 'Khidmah'],
+    tags: ['Data center', 'Administration', 'Data verification', 'Khidmah'],
     metrics: [
-      { label: 'Periode', value: '05/2023 – 06/2023' },
-      { label: 'Peran', value: 'Magang data center & administrasi' },
-      { label: 'Lokasi', value: 'Thursina IIBS' },
+      { label: 'Period', value: '05/2023 – 06/2023' },
+      { label: 'Role', value: 'Data center & administration intern' },
+      { label: 'Location', value: 'Thursina IIBS' },
     ],
     architectureOverview:
-      'Alur kerja: kumpulan data kelulusan → verifikasi → dukungan administrasi → arsip data center yang siap digunakan untuk wisuda.',
+      'Workflow: graduation datasets → verification → administration support → data-center records ready for the ceremony.',
     terraformSnippet: `// Khidmah — data center & administration (May–June 2023)
 const responsibilities = [
   "Sort & organize SMP/SMA graduation data",
@@ -176,10 +176,10 @@ const responsibilities = [
   "Administration support in data center operations",
 ];`,
     architectureNodes: [
-      { id: 'records', label: 'Data kelulusan SMP / SMA', type: 'entry' },
-      { id: 'verify', label: 'Verifikasi data', type: 'gateway' },
-      { id: 'admin', label: 'Dukungan administrasi', type: 'compute' },
-      { id: 'dc', label: 'Arsip data center', type: 'database' },
+      { id: 'records', label: 'Graduation datasets (junior / senior high)', type: 'entry' },
+      { id: 'verify', label: 'Data verification', type: 'gateway' },
+      { id: 'admin', label: 'Administration support', type: 'compute' },
+      { id: 'dc', label: 'Data center records', type: 'database' },
     ],
   },
 ];

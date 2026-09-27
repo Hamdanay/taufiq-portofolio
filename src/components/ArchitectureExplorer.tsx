@@ -13,8 +13,11 @@ export const ArchitectureExplorer: React.FC = () => {
     >
       <div className="page-container">
         <header className="mb-8 max-w-2xl">
-          <h2 className="type-section mb-3">Keahlian</h2>
-          <p className="type-body-tight">Stack yang saya gunakan untuk cloud, web, dan eksplorasi AI.</p>
+          <h2 className="type-section mb-3">Expertise</h2>
+          <p className="type-body-tight">
+            Stack I use for cloud, web development, and applied AI—aligned with cloud and web dev
+            internship roles.
+          </p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -39,7 +42,7 @@ export const ArchitectureExplorer: React.FC = () => {
         </div>
 
         <div className="mt-6 glass-card p-5 sm:p-6">
-          <h3 className="type-block-title mb-3">Alat & workflow</h3>
+          <h3 className="type-block-title mb-3">Tools & workflow</h3>
           <ul className="flex flex-wrap gap-2">
             {TOOL_SKILLS.map((tool) => (
               <li key={tool} className="tag-pill">{tool}</li>

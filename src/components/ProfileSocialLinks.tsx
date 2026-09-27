@@ -13,7 +13,7 @@ export const ProfileSocialLinks: React.FC<ProfileSocialLinksProps> = ({
   const btnClass = size === 'sm' ? 'social-link social-link--sm' : 'social-link';
 
   return (
-    <div className={`social-links ${className}`.trim()} role="group" aria-label="Profil sosial">
+    <div className={`social-links ${className}`.trim()} role="group" aria-label="Social profiles">
       <a
         href={BIODATA.githubUrl}
         target="_blank"

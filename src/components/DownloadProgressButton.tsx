@@ -64,7 +64,7 @@ function triggerBlobDownload(blob: Blob, filename: string) {
 export const DownloadProgressButton: React.FC<DownloadProgressButtonProps> = ({
   href,
   filename,
-  label = 'Unduh PDF',
+  label = 'Download PDF',
   className = '',
   onComplete,
   onError,
@@ -125,7 +125,7 @@ export const DownloadProgressButton: React.FC<DownloadProgressButtonProps> = ({
         {isDone ? (
           <>
             <Check className="w-4 h-4 shrink-0" aria-hidden />
-            Selesai
+            Done
           </>
         ) : isDownloading ? (
           <>
@@ -135,7 +135,7 @@ export const DownloadProgressButton: React.FC<DownloadProgressButtonProps> = ({
         ) : state === 'error' ? (
           <>
             <Download className="w-4 h-4 shrink-0" aria-hidden />
-            Coba lagi
+            Try again
           </>
         ) : (
           <>

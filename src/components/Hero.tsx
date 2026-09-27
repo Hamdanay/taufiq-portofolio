@@ -17,7 +17,7 @@ export const Hero: React.FC<HeroProps> = ({ profileImage, onOpenCv }) => {
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-16 items-center hero-layout">
           <div className="space-y-6 sm:space-y-8 min-w-0 order-2 lg:order-1">
             <header className="hero-enter min-w-0">
-              <p className="type-hero-greet">Perkenalkan,</p>
+              <p className="type-hero-greet">Hello,</p>
               <h1 className="type-hero-title">
                 {nameParts.slice(0, 2).join(' ')}
                 <br />
@@ -33,14 +33,14 @@ export const Hero: React.FC<HeroProps> = ({ profileImage, onOpenCv }) => {
 
             <div className="btn-stack-mobile hero-enter hero-enter-delay-1">
               <a href="#projects" className="btn-solid focus-ring btn-full-mobile">
-                Lihat karya
+                View work
                 <ArrowUpRight className="w-4 h-4 shrink-0" aria-hidden />
               </a>
               <button type="button" onClick={onOpenCv} className="btn-outline focus-ring btn-full-mobile">
-                Unduh CV
+                Download CV
               </button>
               <a href="#contact" className="btn-ghost focus-ring btn-full-mobile">
-                Hubungi saya
+                Get in touch
               </a>
             </div>
 

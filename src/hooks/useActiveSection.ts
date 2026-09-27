@@ -1,31 +1,70 @@
 import { useEffect, useState } from 'react';
 import type { SectionId } from '../constants/sections';
 
+/** Viewport line used to decide which section is "current" (matches nav highlight). */
+const ANCHOR_RATIO = 0.32;
+
+function resolveActiveSection(
+  sectionIds: readonly SectionId[],
+  fallback: SectionId
+): SectionId {
+  const anchor = window.innerHeight * ANCHOR_RATIO;
+  let current: SectionId = fallback;
+
+  for (const id of sectionIds) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    if (el.getBoundingClientRect().top <= anchor) {
+      current = id;
+    }
+  }
+
+  return current;
+}
+
+function sectionFromHash(sectionIds: readonly SectionId[]): SectionId | null {
+  const raw = window.location.hash.replace('#', '');
+  if (!raw) return null;
+  return sectionIds.includes(raw as SectionId) ? (raw as SectionId) : null;
+}
+
 export function useActiveSection(sectionIds: readonly SectionId[], fallback: SectionId = 'hero') {
-  const [active, setActive] = useState<SectionId>(fallback);
+  const [active, setActive] = useState<SectionId>(() => {
+    if (typeof document === 'undefined') return fallback;
+    return sectionFromHash(sectionIds) ?? fallback;
+  });
 
   useEffect(() => {
-    const elements = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => Boolean(el));
+    let raf = 0;
 
-    if (elements.length === 0) return;
+    const updateFromScroll = () => {
+      setActive(resolveActiveSection(sectionIds, fallback));
+    };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    const onScrollOrResize = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(updateFromScroll);
+    };
 
-        const top = visible[0]?.target.id as SectionId | undefined;
-        if (top && sectionIds.includes(top)) setActive(top);
-      },
-      { rootMargin: '-35% 0px -50% 0px', threshold: [0.12, 0.35, 0.55] }
-    );
+    const onHashChange = () => {
+      const fromHash = sectionFromHash(sectionIds);
+      if (fromHash) setActive(fromHash);
+      requestAnimationFrame(updateFromScroll);
+    };
 
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, [sectionIds]);
+    updateFromScroll();
+
+    window.addEventListener('scroll', onScrollOrResize, { passive: true });
+    window.addEventListener('resize', onScrollOrResize);
+    window.addEventListener('hashchange', onHashChange);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('scroll', onScrollOrResize);
+      window.removeEventListener('resize', onScrollOrResize);
+      window.removeEventListener('hashchange', onHashChange);
+    };
+  }, [sectionIds, fallback]);
 
   return active;
 }

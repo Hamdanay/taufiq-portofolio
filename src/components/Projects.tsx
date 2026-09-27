@@ -10,15 +10,15 @@ type ProjectTab = 'overview' | 'diagram' | 'code';
 
 const categoryClass = (category: string) => {
   const key = category.toLowerCase();
-  if (key.includes('cloud') || key.includes('infrastruktur')) return 'project-card--cloud';
-  if (key.includes('pengalaman') || key.includes('magang')) return 'project-card--experience';
+  if (key.includes('cloud') || key.includes('infrastructure')) return 'project-card--cloud';
+  if (key.includes('experience') || key.includes('intern')) return 'project-card--experience';
   return 'project-card--default';
 };
 
 const nodeTypeLabel: Record<ArchitectureNode['type'], string> = {
-  entry: 'Masukan',
-  gateway: 'Integrasi',
-  compute: 'Proses',
+  entry: 'Entry',
+  gateway: 'Integration',
+  compute: 'Compute',
   cache: 'Cache',
   database: 'Data',
 };
@@ -31,9 +31,9 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const selectedProject = projects.find((p) => p.id === selectedProjectId) || projects[0];
 
   const tabs: { id: ProjectTab; label: string }[] = [
-    { id: 'overview', label: 'Ringkasan' },
-    { id: 'diagram', label: 'Alur' },
-    { id: 'code', label: 'Cuplikan' },
+    { id: 'overview', label: 'Overview' },
+    { id: 'diagram', label: 'Flow' },
+    { id: 'code', label: 'Snippet' },
   ];
 
   return (
@@ -44,10 +44,10 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
     >
       <div className="page-container">
         <header className="mb-8 max-w-2xl">
-          <h2 className="type-section mb-3">Karya terpilih</h2>
+          <h2 className="type-section mb-3">Selected work</h2>
           <p className="type-body-tight">
-            Ringkasan proyek dan pengalaman dari CV. Proyek kode tambahan sedang saya kerjakan dan
-            akan ditambahkan setelah siap dipublikasikan.
+            Highlights from my CV. An additional coding project is in progress and will be added
+            when it is ready to share.
           </p>
         </header>
 
@@ -68,7 +68,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               >
                 <div className="project-card__bar" aria-hidden />
                 <div className="p-6 sm:p-7">
-                  <p className="type-meta mb-3">Proyek {String(index + 1).padStart(2, '0')}</p>
+                  <p className="type-meta mb-3">Project {String(index + 1).padStart(2, '0')}</p>
                   <h3 className="type-block-title text-lg mb-2">{proj.title}</h3>
                   <p className="type-body-tight line-clamp-2">{proj.description}</p>
                   <ul className="flex flex-wrap gap-2 mt-4">
@@ -111,7 +111,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               <div className="space-y-8 max-w-2xl">
                 <p className="type-body">{selectedProject.description}</p>
                 <div>
-                  <h4 className="type-block-title mb-3">Sorotan</h4>
+                  <h4 className="type-block-title mb-3">Highlights</h4>
                   <ul className="space-y-2">
                     {selectedProject.highlights.map((item) => (
                       <li key={item} className="text-sm text-muted flex gap-2 break-anywhere">
@@ -135,7 +135,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                   ))}
                 </dl>
                 <div className="pt-6 border-t border-line">
-                  <h4 className="type-block-title mb-2">Arsitektur</h4>
+                  <h4 className="type-block-title mb-2">Architecture</h4>
                   <p className="type-body-tight">{selectedProject.architectureOverview}</p>
                 </div>
               </div>

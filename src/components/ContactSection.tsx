@@ -21,10 +21,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCopyEmail }) =
           <div className="contact-panel__glow" aria-hidden />
           <div className="grid lg:grid-cols-[1.2fr_1fr] gap-8 items-center">
             <div>
-              <h2 className="type-section mb-4">Mari berkolaborasi</h2>
+              <h2 className="type-section mb-4">Let&apos;s work together</h2>
               <p className="type-body max-w-md">
-                Terbuka untuk proyek cloud, web, atau eksplorasi AI. Salin alamat email di bawah untuk
-                menghubungi saya.
+                Open to cloud and web development internships. Copy my email below to reach out.
               </p>
             </div>
             <div className="flex flex-col gap-3 contact-actions min-w-0">

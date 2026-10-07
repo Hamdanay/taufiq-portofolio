@@ -15,13 +15,27 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCv }) => {
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-3 text-sm">
-          <button type="button" onClick={onOpenCv} className="btn-outline btn-sm focus-ring">
+          <button
+            type="button"
+            onClick={onOpenCv}
+            className="btn-pill-border btn-pill-border--sm focus-ring"
+          >
             Download CV
           </button>
-          <a href={BIODATA.githubUrl} target="_blank" rel="noreferrer" className="btn-ghost btn-sm focus-ring">
+          <a
+            href={BIODATA.githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-pill-border btn-pill-border--sm focus-ring"
+          >
             GitHub
           </a>
-          <a href={BIODATA.linkedinUrl} target="_blank" rel="noreferrer" className="btn-ghost btn-sm focus-ring">
+          <a
+            href={BIODATA.linkedinUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-pill-border btn-pill-border--sm focus-ring"
+          >
             LinkedIn
           </a>
         </div>

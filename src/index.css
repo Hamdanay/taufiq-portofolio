@@ -120,6 +120,69 @@
     padding: 0.4rem 0.75rem;
   }
 
+  /* Pill border — matches GitHub / LinkedIn social-link treatment */
+  .btn-pill-border {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.6rem;
+    max-width: 100%;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    text-decoration: none;
+    border-radius: 999px;
+    border: 1px solid var(--color-line);
+    background: var(--color-surface);
+    cursor: pointer;
+    transition:
+      border-color 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .btn-pill-border:hover {
+    color: var(--color-ink);
+    border-color: color-mix(in srgb, var(--color-accent) 40%, var(--color-line));
+    transform: translateY(-2px);
+  }
+
+  .btn-pill-border--sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+  }
+
+  .cert-row {
+    display: flex;
+    gap: 0.875rem;
+    align-items: flex-start;
+  }
+
+  .cert-thumb {
+    flex-shrink: 0;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-line);
+    object-fit: cover;
+    object-position: top center;
+    background: var(--color-surface-alt);
+  }
+
+  .cert-thumb--badge {
+    object-fit: contain;
+    padding: 0.25rem;
+    background: #fff;
+  }
+
+  @media (min-width: 640px) {
+    .cert-thumb {
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+
   .type-section {
     font-family: var(--font-display);
     font-size: clamp(2rem, 2.5vw + 1rem, 3rem);
@@ -657,8 +720,70 @@
     background: linear-gradient(90deg, var(--color-maroon), color-mix(in srgb, var(--color-maroon) 50%, white));
   }
 
+  .experience-card__bar {
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--color-maroon), color-mix(in srgb, var(--color-maroon) 50%, white));
+  }
+
+  .project-card--web .project-card__bar {
+    background: linear-gradient(90deg, #2d6a4f, color-mix(in srgb, #2d6a4f 45%, white));
+  }
+
   .project-card--default .project-card__bar {
     background: linear-gradient(90deg, var(--color-secondary), var(--color-line));
+  }
+
+  .project-screenshots {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .project-screenshots {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .project-screenshot {
+    border-radius: 0.875rem;
+    border: 1px solid var(--color-line);
+    overflow: hidden;
+    background: var(--color-surface-alt);
+  }
+
+  .project-screenshot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .project-screenshot figcaption {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-muted);
+    border-top: 1px solid var(--color-line);
+  }
+
+  .project-demo-note {
+    padding: 0.875rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid color-mix(in srgb, var(--color-accent) 25%, var(--color-line));
+    background: color-mix(in srgb, var(--color-accent) 6%, var(--color-surface));
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--color-muted);
+  }
+
+  .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
 
   .project-card:hover {
@@ -811,7 +936,8 @@
 
     .contact-actions .btn-solid,
     .contact-actions .btn-outline,
-    .contact-actions .btn-ghost {
+    .contact-actions .btn-ghost,
+    .contact-actions .btn-pill-border {
       width: 100%;
       justify-content: center;
     }

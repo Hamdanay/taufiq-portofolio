@@ -1,5 +1,4 @@
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
 import { BIODATA } from '../data/cvData';
 import { useReveal } from '../hooks/useReveal';
 
@@ -31,9 +30,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCopyEmail }) =
                 type="button"
                 onClick={onCopyEmail}
                 className="btn-solid focus-ring min-w-0 justify-center"
+                aria-label={`Copy email ${BIODATA.email} to clipboard`}
               >
                 <span className="truncate max-w-full">{BIODATA.email}</span>
-                <ArrowUpRight className="w-4 h-4 shrink-0" aria-hidden />
               </button>
             </div>
           </div>

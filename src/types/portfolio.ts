@@ -9,6 +9,12 @@ export interface ArchitectureNode {
   type: 'entry' | 'gateway' | 'compute' | 'cache' | 'database';
 }
 
+export interface ProjectScreenshot {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -21,4 +27,10 @@ export interface Project {
   architectureOverview: string;
   terraformSnippet: string;
   architectureNodes: ArchitectureNode[];
+  liveUrl?: string;
+  repoUrl?: string;
+  screenshots?: ProjectScreenshot[];
+  demoNote?: string;
+  setupNote?: string;
+  readmeUrl?: string;
 }

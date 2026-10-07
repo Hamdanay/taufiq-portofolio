@@ -34,6 +34,12 @@ export const SkillMatrix: React.FC<SkillMatrixProps> = ({ onCopyCredential }) =>
                   <p className="text-ink text-sm font-medium">{edu.title}</p>
                   <p className="type-body-tight text-sm mt-0.5">
                     {edu.institution} · {edu.detail}
+                    {edu.score ? (
+                      <>
+                        <span className="text-muted" aria-hidden> · </span>
+                        <span className="text-ink font-medium">{edu.score}</span>
+                      </>
+                    ) : null}
                   </p>
                 </li>
               ))}
@@ -45,10 +51,23 @@ export const SkillMatrix: React.FC<SkillMatrixProps> = ({ onCopyCredential }) =>
             <ul className="space-y-4">
               {CV_CERTIFICATES.map((cert) => (
                 <li key={cert.title} className="border-b border-line pb-4 last:border-0 last:pb-0">
-                  <p className="type-meta mb-1">{cert.period}</p>
-                  <p className="text-ink text-sm font-semibold">{cert.title}</p>
-                  <p className="type-body-tight text-sm mt-0.5">{cert.issuer}</p>
-                  <div className="flex flex-wrap gap-2 mt-2">
+                  <div className="cert-row">
+                    {cert.imageUrl ? (
+                      <img
+                        src={cert.imageUrl}
+                        alt={cert.title}
+                        className={`cert-thumb${cert.imageUrl.includes('google-cloud') ? ' cert-thumb--badge' : ''}`}
+                        width={80}
+                        height={80}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    ) : null}
+                    <div className="min-w-0 flex-1">
+                      <p className="type-meta mb-1">{cert.period}</p>
+                      <p className="text-ink text-sm font-semibold">{cert.title}</p>
+                      <p className="type-body-tight text-sm mt-0.5">{cert.issuer}</p>
+                      <div className="flex flex-wrap gap-2 mt-2">
                     {cert.verifyUrl && (
                       <a
                         href={cert.verifyUrl}
@@ -69,6 +88,8 @@ export const SkillMatrix: React.FC<SkillMatrixProps> = ({ onCopyCredential }) =>
                         Copy ID
                       </button>
                     )}
+                      </div>
+                    </div>
                   </div>
                 </li>
               ))}

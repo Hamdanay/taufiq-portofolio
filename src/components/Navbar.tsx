@@ -29,15 +29,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal, activeSection }) 
 
   return (
     <header className="nav-shell">
-      <div className="nav-float flex items-center justify-between gap-2 min-w-0">
-        <a
-          href="#hero"
-          className="nav-brand font-display font-bold text-ink focus-ring rounded-md py-1 shrink"
-        >
-          Portfolio
-        </a>
-
-        <nav className="hidden md:flex items-center justify-center gap-1 flex-1 min-w-0" aria-label="Main">
+      <div className="nav-float flex items-center gap-2 min-w-0">
+        <nav className="hidden md:flex items-center justify-center gap-0.5 flex-1 min-w-0" aria-label="Main">
           {NAV_LINKS.map((link) => {
             const isActive = activeSection === link.id;
             return (
@@ -53,7 +46,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal, activeSection }) 
           })}
         </nav>
 
-        <div className="nav-actions">
+        <div className="nav-actions ms-auto md:ms-0">
           <ProfileSocialLinks className="hidden lg:flex" size="sm" />
           <button
             type="button"
@@ -68,7 +61,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCvModal, activeSection }) 
           <button
             type="button"
             onClick={onOpenCvModal}
-            className="btn-ghost btn-sm hidden sm:inline-flex focus-ring"
+            className="btn-pill-border btn-pill-border--sm hidden sm:inline-flex focus-ring"
           >
             CV
           </button>

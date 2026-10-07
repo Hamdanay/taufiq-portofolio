@@ -4,6 +4,7 @@ import { Hero } from './components/Hero';
 import { MarqueeStrip } from './components/MarqueeStrip';
 import { SkillMatrix } from './components/SkillMatrix';
 import { Projects } from './components/Projects';
+import { ExperienceSection } from './components/ExperienceSection';
 import { ArchitectureExplorer } from './components/ArchitectureExplorer';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -56,6 +57,8 @@ export function App() {
         <SkillMatrix onCopyCredential={copyCredential} />
 
         <Projects projects={PROJECTS} />
+
+        <ExperienceSection />
 
         <ArchitectureExplorer />
 

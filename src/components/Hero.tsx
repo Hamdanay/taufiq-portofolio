@@ -36,10 +36,14 @@ export const Hero: React.FC<HeroProps> = ({ profileImage, onOpenCv }) => {
                 View work
                 <ArrowUpRight className="w-4 h-4 shrink-0" aria-hidden />
               </a>
-              <button type="button" onClick={onOpenCv} className="btn-outline focus-ring btn-full-mobile">
+              <button
+                type="button"
+                onClick={onOpenCv}
+                className="btn-pill-border focus-ring btn-full-mobile"
+              >
                 Download CV
               </button>
-              <a href="#contact" className="btn-ghost focus-ring btn-full-mobile">
+              <a href="#contact" className="btn-pill-border focus-ring btn-full-mobile">
                 Get in touch
               </a>
             </div>

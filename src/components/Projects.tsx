@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ArrowUpRight, ExternalLink } from 'lucide-react';
 import type { ArchitectureNode, Project } from '../types/portfolio';
 import { useReveal } from '../hooks/useReveal';
 
@@ -11,6 +12,7 @@ type ProjectTab = 'overview' | 'diagram' | 'code';
 const categoryClass = (category: string) => {
   const key = category.toLowerCase();
   if (key.includes('cloud') || key.includes('infrastructure')) return 'project-card--cloud';
+  if (key.includes('full-stack') || key.includes('web')) return 'project-card--web';
   if (key.includes('experience') || key.includes('intern')) return 'project-card--experience';
   return 'project-card--default';
 };
@@ -36,6 +38,8 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
     { id: 'code', label: 'Snippet' },
   ];
 
+  const hasProjectLinks = Boolean(selectedProject.liveUrl || selectedProject.repoUrl);
+
   return (
     <section
       id="projects"
@@ -46,8 +50,8 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         <header className="mb-8 max-w-2xl">
           <h2 className="type-section mb-3">Selected work</h2>
           <p className="type-body-tight">
-            Highlights from my CV. An additional coding project is in progress and will be added
-            when it is ready to share.
+            Independent builds and CV highlights—architecture practice plus a shipped full-stack
+            app with a live demo and open repository.
           </p>
         </header>
 
@@ -88,6 +92,33 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             <h3 className="type-block-title text-lg">{selectedProject.title}</h3>
             <p className="type-body-tight mt-2">{selectedProject.subtitle}</p>
 
+            {hasProjectLinks && (
+              <div className="project-links mt-5">
+                {selectedProject.liveUrl && (
+                  <a
+                    href={selectedProject.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-solid btn-sm focus-ring"
+                  >
+                    Live demo
+                    <ArrowUpRight className="w-4 h-4 shrink-0" aria-hidden />
+                  </a>
+                )}
+                {selectedProject.repoUrl && (
+                  <a
+                    href={selectedProject.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-pill-border btn-pill-border--sm focus-ring"
+                  >
+                    GitHub
+                    <ExternalLink className="w-3.5 h-3.5 shrink-0" aria-hidden />
+                  </a>
+                )}
+              </div>
+            )}
+
             <div className="flex flex-wrap gap-0 mt-6 border-b border-line -mb-px overflow-x-auto">
               {tabs.map((tab) => (
                 <button
@@ -108,8 +139,20 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 
           <div className="px-4 py-8 sm:px-8 min-w-0">
             {activeTab === 'overview' && (
-              <div className="space-y-8 max-w-2xl">
+              <div className="space-y-8 max-w-3xl">
                 <p className="type-body">{selectedProject.description}</p>
+
+                {selectedProject.screenshots && selectedProject.screenshots.length > 0 && (
+                  <div className="project-screenshots">
+                    {selectedProject.screenshots.map((shot) => (
+                      <figure key={shot.src} className="project-screenshot">
+                        <img src={shot.src} alt={shot.alt} loading="lazy" decoding="async" />
+                        {shot.caption ? <figcaption>{shot.caption}</figcaption> : null}
+                      </figure>
+                    ))}
+                  </div>
+                )}
+
                 <div>
                   <h4 className="type-block-title mb-3">Highlights</h4>
                   <ul className="space-y-2">
@@ -121,11 +164,13 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     ))}
                   </ul>
                 </div>
+
                 <ul className="flex flex-wrap gap-2">
                   {selectedProject.tags.map((tag) => (
                     <li key={tag} className="tag-pill text-xs py-1.5">{tag}</li>
                   ))}
                 </ul>
+
                 <dl className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                   {selectedProject.metrics.map((m) => (
                     <div key={m.label}>
@@ -134,6 +179,31 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     </div>
                   ))}
                 </dl>
+
+                {selectedProject.setupNote && (
+                  <p className="type-body-tight text-sm">
+                    <span className="text-ink font-semibold">Local setup: </span>
+                    {selectedProject.setupNote}
+                    {selectedProject.readmeUrl ? (
+                      <>
+                        {' '}
+                        <a
+                          href={selectedProject.readmeUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-accent font-semibold underline-offset-2 hover:underline focus-ring rounded"
+                        >
+                          README
+                        </a>
+                      </>
+                    ) : null}
+                  </p>
+                )}
+
+                {selectedProject.demoNote && (
+                  <p className="project-demo-note" role="note">{selectedProject.demoNote}</p>
+                )}
+
                 <div className="pt-6 border-t border-line">
                   <h4 className="type-block-title mb-2">Architecture</h4>
                   <p className="type-body-tight">{selectedProject.architectureOverview}</p>

@@ -268,6 +268,28 @@ app.post('/api/uploads/cover', uploadCover);`,
       'From the repo root: docker compose up -d for the stack; run scripts/backup.ps1 or backup.sh manually or on a schedule (see README).',
     demoNote:
       'No separate public demo—review the CI workflow runs and backup/restore scripts in the repository. Complements the BookNest Vercel app (Project 02).',
+    screenshots: [
+      {
+        src: '/projects/booknest-ops/architecture.png',
+        alt: 'BookNest system architecture: Docker, Nginx reverse proxy, CI/CD, and 3-2-1 backup strategy',
+        caption: 'Architecture · Docker, CI/CD & DR',
+      },
+      {
+        src: '/projects/booknest-ops/github-actions.jpg',
+        alt: 'Successful GitHub Actions workflow for BookNest unit tests and Docker image build',
+        caption: 'GitHub Actions CI pipeline',
+      },
+      {
+        src: '/projects/booknest-ops/telegram-backup.jpg',
+        alt: 'BookNest backup script success with Telegram text alert and database file upload',
+        caption: 'Automated backup & Telegram off-site copy',
+      },
+      {
+        src: '/projects/booknest-ops/restore-docker.jpg',
+        alt: 'Database restore success in terminal with healthy Docker Compose services',
+        caption: 'Disaster recovery · restore & healthy stack',
+      },
+    ],
     architectureOverview:
       'Push to main triggers GitHub Actions (tests + image builds). Runtime: browser → Nginx :8080 → Express API → SQLite on named volumes. Scheduled backup scripts snapshot the DB after integrity checks, store locally, and upload .db files to Telegram; restore scripts rehydrate the latest backup and restart the backend.',
     terraformSnippet: `# BookNest CI (excerpt) — .github/workflows/ci.yml

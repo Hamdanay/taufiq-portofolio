@@ -12,6 +12,9 @@ type ProjectTab = 'overview' | 'diagram' | 'code';
 const categoryClass = (category: string) => {
   const key = category.toLowerCase();
   if (key.includes('cloud') || key.includes('infrastructure')) return 'project-card--cloud';
+  if (key.includes('devops') || key.includes('reliability') || key.includes('ci/cd')) {
+    return 'project-card--cloud';
+  }
   if (key.includes('full-stack') || key.includes('web')) return 'project-card--web';
   if (key.includes('experience') || key.includes('intern')) return 'project-card--experience';
   return 'project-card--default';
@@ -50,12 +53,12 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         <header className="mb-8 max-w-2xl">
           <h2 className="type-section mb-3">Selected work</h2>
           <p className="type-body-tight">
-            Independent builds and CV highlights—architecture practice plus a shipped full-stack
-            app with a live demo and open repository.
+            Architecture practice, a shipped full-stack app with a live demo, and BookNest
+            infrastructure work—CI/CD, backups, and disaster recovery in the same open repo.
           </p>
         </header>
 
-        <div className="grid md:grid-cols-2 gap-4 mb-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
           {projects.map((proj, index) => {
             const isActive = selectedProjectId === proj.id;
             return (

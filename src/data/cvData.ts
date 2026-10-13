@@ -22,7 +22,7 @@ export const BIODATA = {
 export const HERO_STATS = [
   { value: '3', label: 'Technical certs (Google & Hacktiv8)' },
   { value: '2 mo', label: 'Khidmah internship · Thursina IIBS 2023' },
-  { value: '2', label: 'Portfolio projects' },
+  { value: '3', label: 'Portfolio projects' },
 ];
 
 export const TOOL_SKILLS = [
@@ -232,6 +232,61 @@ app.post('/api/uploads/cover', uploadCover);`,
       { id: 'api', label: 'Express serverless API', type: 'gateway' },
       { id: 'logic', label: 'Validation, pagination, history', type: 'compute' },
       { id: 'sqlite', label: 'SQLite persistence', type: 'database' },
+    ],
+  },
+  {
+    id: 'proj-booknest-ops',
+    title: 'BookNest — CI/CD, Backup & Disaster Recovery',
+    subtitle: 'BookNest infrastructure extension · 2026',
+    category: 'DevOps & reliability',
+    description:
+      'Production-oriented layer for the same BookNest codebase: Docker Compose (Nginx + Node + SQLite volumes), GitHub Actions CI on every push to main, and automated SQLite backup with integrity checks, local retention, and off-site copies via Telegram—plus scripted restore with health verification.',
+    highlights: [
+      'Context: harden BookNest for repeatable deploys and data safety beyond the Vercel demo.',
+      'Role: CI/CD workflows, container layout, backup/restore scripts, and scheduling guidance.',
+      'CI/CD: 18 automated API and domain tests plus multi-stage Docker build verification on Ubuntu runners.',
+      'Backup & DR: PRAGMA integrity_check, online SQLite backup API, 7-day retention, Telegram document upload (3-2-1 style), ~3s restore flow with WAL cleanup and /api/health check.',
+      'Outcome: documented ops path in the BookNest repo—same GitHub project, separate reliability focus.',
+    ],
+    tags: [
+      'GitHub Actions',
+      'CI/CD',
+      'Docker',
+      'Nginx',
+      'SQLite',
+      'Telegram',
+      'Disaster recovery',
+    ],
+    metrics: [
+      { label: 'Period', value: '2026' },
+      { label: 'Repository', value: 'Hamdanay/BookNest' },
+      { label: 'Focus', value: 'CI/CD · backup · restore' },
+    ],
+    repoUrl: 'https://github.com/Hamdanay/BookNest',
+    readmeUrl: 'https://github.com/Hamdanay/BookNest#cicd-pipeline-github-actions',
+    setupNote:
+      'From the repo root: docker compose up -d for the stack; run scripts/backup.ps1 or backup.sh manually or on a schedule (see README).',
+    demoNote:
+      'No separate public demo—review the CI workflow runs and backup/restore scripts in the repository. Complements the BookNest Vercel app (Project 02).',
+    architectureOverview:
+      'Push to main triggers GitHub Actions (tests + image builds). Runtime: browser → Nginx :8080 → Express API → SQLite on named volumes. Scheduled backup scripts snapshot the DB after integrity checks, store locally, and upload .db files to Telegram; restore scripts rehydrate the latest backup and restart the backend.',
+    terraformSnippet: `# BookNest CI (excerpt) — .github/workflows/ci.yml
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cd backend && npm ci && npm test
+      - run: cd frontend && npm ci && npm test
+  docker-build:
+    needs: test
+    steps:
+      - run: docker compose build`,
+    architectureNodes: [
+      { id: 'git', label: 'Push to main → GitHub Actions', type: 'entry' },
+      { id: 'ci', label: 'Tests + Docker build verification', type: 'gateway' },
+      { id: 'stack', label: 'Nginx + Express + SQLite volumes', type: 'compute' },
+      { id: 'backup', label: 'Backup → local retention + Telegram', type: 'database' },
     ],
   },
 ];

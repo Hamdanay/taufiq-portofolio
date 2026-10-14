@@ -5,7 +5,6 @@ import { MarqueeStrip } from './components/MarqueeStrip';
 import { SkillMatrix } from './components/SkillMatrix';
 import { Projects } from './components/Projects';
 import { ExperienceSection } from './components/ExperienceSection';
-import { ArchitectureExplorer } from './components/ArchitectureExplorer';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { CvModal } from './components/CvModal';
@@ -59,8 +58,6 @@ export function App() {
         <Projects projects={PROJECTS} />
 
         <ExperienceSection />
-
-        <ArchitectureExplorer />
 
         <ContactSection onCopyEmail={copyEmailToClipboard} />
       </main>

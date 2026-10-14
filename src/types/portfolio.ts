@@ -25,7 +25,7 @@ export interface Project {
   tags: string[];
   metrics: Metric[];
   architectureOverview: string;
-  terraformSnippet: string;
+  terraformSnippet?: string;
   architectureNodes: ArchitectureNode[];
   liveUrl?: string;
   repoUrl?: string;

@@ -18,9 +18,11 @@
   --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
 
   --spacing-section: 5rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
-  --radius-2xl: 2rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
 }
 
 @layer base {
@@ -559,15 +561,15 @@
 
   .glass-card {
     background: var(--color-surface);
-    border: 1px solid color-mix(in srgb, var(--color-line) 85%, transparent);
-    border-radius: var(--radius-xl);
-    box-shadow: 0 20px 50px rgba(12, 12, 13, 0.06);
-    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease,
-      border-color 0.25s ease;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 1px 3px rgba(12, 12, 13, 0.04);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
 
   .glass-card:hover {
-    border-color: color-mix(in srgb, var(--color-accent) 35%, var(--color-line));
+    border-color: #a1a1aa;
+    box-shadow: 0 4px 12px rgba(12, 12, 13, 0.06);
   }
 
   .hero-layout {
@@ -703,35 +705,10 @@
   .project-card {
     cursor: pointer;
     text-align: left;
-  }
-
-  .project-card__bar {
-    height: 4px;
-    width: 100%;
-    background: var(--color-line);
-    transition: background 0.3s ease;
-  }
-
-  .project-card--cloud .project-card__bar {
-    background: linear-gradient(90deg, var(--color-accent), color-mix(in srgb, var(--color-accent) 40%, white));
-  }
-
-  .project-card--experience .project-card__bar {
-    background: linear-gradient(90deg, var(--color-maroon), color-mix(in srgb, var(--color-maroon) 50%, white));
-  }
-
-  .experience-card__bar {
-    height: 4px;
-    width: 100%;
-    background: linear-gradient(90deg, var(--color-maroon), color-mix(in srgb, var(--color-maroon) 50%, white));
-  }
-
-  .project-card--web .project-card__bar {
-    background: linear-gradient(90deg, #2d6a4f, color-mix(in srgb, #2d6a4f 45%, white));
-  }
-
-  .project-card--default .project-card__bar {
-    background: linear-gradient(90deg, var(--color-secondary), var(--color-line));
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
 
   .project-screenshots {
@@ -762,6 +739,11 @@
     object-position: top center;
   }
 
+  .project-screenshot img[src$='.svg'] {
+    object-fit: contain;
+    background: #0d1117;
+  }
+
   .project-screenshot figcaption {
     padding: 0.5rem 0.75rem;
     font-size: 0.75rem;
@@ -787,28 +769,28 @@
   }
 
   .project-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 28px 60px rgba(12, 12, 13, 0.1);
+    border-color: #a1a1aa;
+    box-shadow: 0 4px 12px rgba(12, 12, 13, 0.05);
   }
 
   .project-card.is-active {
-    border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-line));
-    box-shadow: 0 24px 56px rgba(91, 77, 255, 0.12);
-    transform: translateY(-4px);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 1px var(--color-accent), 0 2px 8px rgba(91, 77, 255, 0.08);
   }
 
   .expertise-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 22px 48px rgba(12, 12, 13, 0.08);
+    border-color: #a1a1aa;
+    box-shadow: 0 4px 12px rgba(12, 12, 13, 0.05);
   }
 
   .contact-panel {
     position: relative;
     overflow: hidden;
     padding: clamp(1.75rem, 4vw, 2.75rem);
-    border-radius: var(--radius-2xl);
+    border-radius: var(--radius-xl);
     background: var(--color-surface);
     border: 1px solid var(--color-line);
+    box-shadow: 0 1px 3px rgba(12, 12, 13, 0.04);
   }
 
   .contact-panel__glow {
@@ -819,14 +801,18 @@
     top: -6rem;
     border-radius: 50%;
     background: radial-gradient(circle, var(--color-accent-soft), transparent 70%);
+    opacity: 0.5;
     pointer-events: none;
   }
 
   .tag-pill {
-    padding: 0.4rem 0.85rem;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
     background: var(--color-surface-alt);
     color: var(--color-secondary);
     border: 1px solid var(--color-line);
@@ -834,7 +820,7 @@
   }
 
   .tag-pill:hover {
-    border-color: var(--color-ink);
+    border-color: #a1a1aa;
     color: var(--color-ink);
   }
 

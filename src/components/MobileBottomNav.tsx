@@ -2,7 +2,7 @@ import React from 'react';
 import { NAV_LINKS } from '../constants/sections';
 import type { SectionId } from '../constants/sections';
 
-const MOBILE_LINKS = NAV_LINKS.filter((l) => ['hero', 'projects', 'contact'].includes(l.id));
+const MOBILE_LINKS = NAV_LINKS.filter((l) => ['hero', 'about', 'projects', 'contact'].includes(l.id));
 
 interface MobileBottomNavProps {
   activeSection: SectionId;
